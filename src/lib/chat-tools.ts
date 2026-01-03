@@ -149,7 +149,7 @@ export function createChatTools(context: ChatToolsContext, locale: string = "en"
               paymentStatus: orders.paymentStatus,
               total: orders.total,
               currency: orders.currency,
-              shippingAddress: orders.shippingAddress,
+              shippingAddress: orders.deliveryAddress,
               items: orders.items,
               createdAt: orders.createdAt,
               userId: orders.userId,

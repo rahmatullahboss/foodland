@@ -48,10 +48,10 @@ export async function GET(
     }
 
     const items = order.items as OrderItem[];
-    const shippingAddress = order.shippingAddress as Address | null;
+    const deliveryAddress = order.deliveryAddress as Address | null;
 
     // Generate invoice HTML
-    const invoiceHtml = generateInvoiceHtml(order, items, shippingAddress);
+    const invoiceHtml = generateInvoiceHtml(order, items, deliveryAddress);
 
     // Return as HTML for print/PDF
     return new NextResponse(invoiceHtml, {
@@ -71,7 +71,7 @@ export async function GET(
 function generateInvoiceHtml(
   order: typeof orders.$inferSelect,
   items: OrderItem[],
-  shippingAddress: Address | null
+  deliveryAddress: Address | null
 ): string {
   const formatDate = (date: Date | null) => {
     if (!date) return "N/A";
@@ -243,12 +243,12 @@ function generateInvoiceHtml(
     </div>
     <div class="address-block">
       <h3>Ship To</h3>
-      ${shippingAddress ? `
-        <p><strong>${shippingAddress.name}</strong></p>
-        <p>${shippingAddress.address}</p>
-        <p>${shippingAddress.city}${shippingAddress.postalCode ? `, ${shippingAddress.postalCode}` : ""}</p>
-        <p>${shippingAddress.country}</p>
-        <p>${shippingAddress.phone}</p>
+      ${deliveryAddress ? `
+        <p><strong>${deliveryAddress.name}</strong></p>
+        <p>${deliveryAddress.address}</p>
+        <p>${deliveryAddress.city}${deliveryAddress.state ? `, ${deliveryAddress.state}` : ""}</p>
+        <p>${deliveryAddress.country}</p>
+        <p>${deliveryAddress.phone}</p>
       ` : "<p>Same as billing address</p>"}
     </div>
   </div>

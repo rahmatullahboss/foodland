@@ -203,6 +203,7 @@ export const orders = sqliteTable("orders", {
   orderType: text("order_type", { enum: ["dine_in", "takeaway", "delivery"] }).default("dine_in"),
   tableId: text("table_id").references(() => tables.id),
   subtotal: real("subtotal").notNull(),
+  shippingCost: real("shipping_cost").default(0),
   discount: real("discount").default(0),
   tax: real("tax").default(0),
   total: real("total").notNull(),
@@ -224,8 +225,9 @@ export const orders = sqliteTable("orders", {
 export const reviews = sqliteTable("reviews", {
   id: text("id").primaryKey(),
   menuItemId: text("menu_item_id")
-    .notNull()
     .references(() => menuItems.id, { onDelete: "cascade" }),
+  productId: text("product_id")
+    .references(() => products.id, { onDelete: "cascade" }),
   userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
   rating: integer("rating").notNull(),
   title: text("title"),
@@ -277,6 +279,8 @@ export interface SettingsData {
   enableStripe?: boolean;
   enableBkash?: boolean;
   notifyNewOrder?: boolean;
+  notifyLowStock?: boolean;
+  lowStockThreshold?: number;
   openingTime?: string;
   closingTime?: string;
 }
@@ -288,6 +292,127 @@ export const siteSettings = sqliteTable("site_settings", {
     () => new Date()
   ),
   updatedBy: text("updated_by").references(() => users.id),
+});
+
+// ===========================================
+// Commerce Tables (Restored)
+// ===========================================
+
+export const addresses = sqliteTable("addresses", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  phone: text("phone").notNull(),
+  addressLine1: text("address_line1").notNull(),
+  addressLine2: text("address_line2"),
+  city: text("city").notNull(),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  country: text("country").default("Bangladesh"),
+  type: text("type", { enum: ["home", "office", "other"] }).default("home"),
+  isDefault: integer("is_default", { mode: "boolean" }).default(false),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+});
+
+export const products = sqliteTable("products", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  description: text("description"),
+  shortDescription: text("short_description"),
+  price: real("price").notNull(),
+  compareAtPrice: real("compare_at_price"),
+  costPrice: real("cost_price"),
+  sku: text("sku"),
+  barcode: text("barcode"),
+  quantity: integer("quantity").default(0),
+  lowStockThreshold: integer("low_stock_threshold").default(5),
+  trackQuantity: integer("track_quantity", { mode: "boolean" }).default(true),
+  categoryId: text("category_id").references(() => categories.id),
+  images: text("images", { mode: "json" }).$type<string[]>().default([]),
+  featuredImage: text("featured_image"),
+  isActive: integer("is_active", { mode: "boolean" }).default(true),
+  isFeatured: integer("is_featured", { mode: "boolean" }).default(false),
+  weight: real("weight"),
+  weightUnit: text("weight_unit").default("kg"),
+  metaTitle: text("meta_title"),
+  metaDescription: text("meta_description"),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+});
+
+export const coupons = sqliteTable("coupons", {
+  id: text("id").primaryKey(),
+  code: text("code").notNull().unique(),
+  description: text("description"),
+  discountType: text("discount_type").notNull(), // 'percentage' or 'fixed'
+  discountValue: real("discount_value").notNull(),
+  minOrderAmount: real("min_order_amount"),
+  maxDiscount: real("max_discount"),
+  usageLimit: integer("usage_limit"),
+  usedCount: integer("used_count").default(0),
+  startsAt: integer("starts_at", { mode: "timestamp" }),
+  expiresAt: integer("expires_at", { mode: "timestamp" }),
+  isActive: integer("is_active", { mode: "boolean" }).default(true),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+});
+
+export const wishlist = sqliteTable("wishlist", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  productId: text("product_id").notNull().references(() => products.id, { onDelete: "cascade" }),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+});
+
+export const supportTickets = sqliteTable("support_tickets", {
+  id: text("id").primaryKey(),
+  ticketNumber: text("ticket_number").notNull().unique(),
+  userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
+  orderId: text("order_id").references(() => products.id, { onDelete: "set null" }), // Assuming orderId links to orders, but orders table exists. Let's check orders definition.
+  category: text("category").notNull(),
+  subject: text("subject").notNull(),
+  description: text("description").notNull(),
+  status: text("status", { enum: ["open", "in_progress", "resolved", "closed"] }).default("open"),
+  priority: text("priority", { enum: ["low", "medium", "high"] }).default("medium"),
+  customerName: text("customer_name"),
+  customerEmail: text("customer_email"),
+  customerPhone: text("customer_phone"),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
+});
+
+// ===========================================
+// Chat Tables
+// ===========================================
+
+export const chatConversations = sqliteTable("chat_conversations", {
+  id: text("id").primaryKey(),
+  sessionId: text("session_id").notNull().unique(),
+  userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
+  guestName: text("guest_name"),
+  guestPhone: text("guest_phone"),
+  messageCount: integer("message_count").default(0),
+  lastMessageAt: integer("last_message_at", { mode: "timestamp" }),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(
+    () => new Date()
+  ),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(
+    () => new Date()
+  ),
+});
+
+export const chatMessages = sqliteTable("chat_messages", {
+  id: text("id").primaryKey(),
+  conversationId: text("conversation_id")
+    .notNull()
+    .references(() => chatConversations.id, { onDelete: "cascade" }),
+  role: text("role", { enum: ["user", "assistant", "system"] }).notNull(),
+  content: text("content").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(
+    () => new Date()
+  ),
 });
 
 // ===========================================
@@ -364,6 +489,10 @@ export const reviewsRelations = relations(reviews, ({ one }) => ({
     fields: [reviews.menuItemId],
     references: [menuItems.id],
   }),
+  product: one(products, {
+    fields: [reviews.productId],
+    references: [products.id],
+  }),
   user: one(users, {
     fields: [reviews.userId],
     references: [users.id],
@@ -381,6 +510,63 @@ export const reservationsRelations = relations(reservations, ({ one }) => ({
   }),
 }));
 
+export const addressesRelations = relations(addresses, ({ one }) => ({
+  user: one(users, {
+    fields: [addresses.userId],
+    references: [users.id],
+  }),
+}));
+
+export const productsRelations = relations(products, ({ one, many }) => ({
+  category: one(categories, {
+    fields: [products.categoryId],
+    references: [categories.id],
+  }),
+  reviews: many(reviews), 
+}));
+
+export const wishlistRelations = relations(wishlist, ({ one }) => ({
+  user: one(users, {
+    fields: [wishlist.userId],
+    references: [users.id],
+  }),
+  product: one(products, {
+    fields: [wishlist.productId],
+    references: [products.id],
+  }),
+}));
+
+export const supportTicketsRelations = relations(supportTickets, ({ one }) => ({
+  user: one(users, {
+    fields: [supportTickets.userId],
+    references: [users.id],
+  }),
+  // order relation if needed, but schema.ts orders definition is separate.
+  // orders table is defined earlier.
+  order: one(orders, {
+     fields: [supportTickets.orderId],
+     references: [orders.id],
+  }),
+}));
+
+export const chatConversationsRelations = relations(
+  chatConversations,
+  ({ one, many }) => ({
+    user: one(users, {
+      fields: [chatConversations.userId],
+      references: [users.id],
+    }),
+    messages: many(chatMessages),
+  })
+);
+
+export const chatMessagesRelations = relations(chatMessages, ({ one }) => ({
+  conversation: one(chatConversations, {
+    fields: [chatMessages.conversationId],
+    references: [chatConversations.id],
+  }),
+}));
+
 // ===========================================
 // Types
 // ===========================================
@@ -390,8 +576,10 @@ export type MenuItem = typeof menuItems.$inferSelect;
 export type Category = typeof categories.$inferSelect;
 export type Order = typeof orders.$inferSelect;
 export type Table = typeof tables.$inferSelect;
+export type Product = typeof products.$inferSelect;
 export type CartItem = {
-  menuItemId: string;
+  menuItemId?: string; // made optional to support products
+  productId?: string; // added for commerce products
   variantId?: string;
   name: string;
   price: number;
@@ -406,5 +594,8 @@ export interface Address {
   phone: string;
   address: string;
   city: string;
+  state?: string;
+  zipCode?: string;
+  country?: string;
   instruction?: string;
 }

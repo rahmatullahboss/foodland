@@ -1,62 +1,64 @@
--- DC Store Seed Data
--- Categories and Products
+-- Categories
+INSERT OR IGNORE INTO categories (id, name, slug, is_active) VALUES ('cat_pizza', 'Pizza', 'pizza', 1);
+INSERT OR IGNORE INTO categories (id, name, slug, is_active) VALUES ('cat_burger', 'Burger', 'burger', 1);
 
--- Clear existing data (optional - comment out if you want to keep existing data)
-DELETE FROM products;
-DELETE FROM categories;
+-- Menu Items (Pizzas)
+-- Using existing cartoon assets as placeholders
+INSERT OR IGNORE INTO menu_items (id, name_en, slug, price, category_id, description_en, featured_image, is_active) VALUES 
+('pizza_1', 'Classic Margherita', 'margherita', 850, 'cat_pizza', 'Authentic Italian pizza with fresh mozzarella and basil.', '/images/pizza_margherita_real.png', 1),
+('pizza_2', 'Spicy Pepperoni', 'pepperoni', 950, 'cat_pizza', 'Loaded with spicy pepperoni and chili flakes.', '/images/pizza_pepperoni_real.png', 1),
+('pizza_3', 'BBQ Chicken Feast', 'bbq-chicken', 1050, 'cat_pizza', 'Tender chicken pieces tossed in smokey BBQ sauce.', '/images/pizza_bbq_chicken_real.png', 1),
+('pizza_4', 'Veggie Supreme', 'veggie-supreme', 800, 'cat_pizza', 'Loaded with bell peppers, onions, and mushrooms.', '/images/pizza_veggie_real.png', 1),
+('pizza_5', 'Seafood Delight', 'seafood-delight', 1200, 'cat_pizza', 'Fresh shrimp and crab meat with white sauce.', '/images/pizza_seafood_real.png', 1),
+('pizza_6', 'Meat Lovers', 'meat-lovers', 1150, 'cat_pizza', 'Packed with pepperoni, sausage, beef, and bacon.', '/images/pizza_pepperoni_real.png', 1),
+('pizza_7', 'Four Cheese', 'four-cheese', 900, 'cat_pizza', 'Blend of Mozzarella, Cheddar, Parmesan, and Gorgonzola.', '/images/pizza_margherita_real.png', 1),
+('pizza_8', 'Hawaiian', 'hawaiian', 950, 'cat_pizza', 'Classic ham and pineapple combination.', '/images/pizza_veggie_real.png', 1);
 
--- Insert Categories
-INSERT INTO categories (id, name, slug, description, image, sort_order, is_active, created_at, updated_at) VALUES
-('cat-electronics', 'Electronics', 'electronics', 'Latest gadgets and electronic devices', 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop', 1, 1, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-('cat-fashion', 'Fashion', 'fashion', 'Trendy clothing and accessories', 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=300&fit=crop', 2, 1, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-('cat-home', 'Home & Living', 'home-living', 'Home decor and lifestyle products', 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop', 3, 1, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-('cat-sports', 'Sports & Outdoors', 'sports-outdoors', 'Fitness equipment and outdoor gear', 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop', 4, 1, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-('cat-beauty', 'Beauty & Health', 'beauty-health', 'Skincare, cosmetics and wellness products', 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=300&fit=crop', 5, 1, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
+-- Menu Item Variants (Sizes)
+-- Pizza 1 (Margherita)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p1_s', 'pizza_1', 'Small (8")', 550),
+('var_p1_m', 'pizza_1', 'Medium (12")', 850),
+('var_p1_l', 'pizza_1', 'Large (16")', 1250);
 
--- Insert Products - Electronics
-INSERT INTO products (id, name, slug, description, short_description, price, compare_at_price, sku, quantity, low_stock_threshold, track_quantity, category_id, images, featured_image, is_active, is_featured, weight, weight_unit, created_at, updated_at) VALUES
-('prod-001', 'Premium Wireless Headphones Pro Max', 'premium-wireless-headphones', 'Experience crystal-clear audio with our premium wireless headphones. Features active noise cancellation, 40-hour battery life, and premium memory foam ear cushions for all-day comfort. Supports Bluetooth 5.3 and multipoint connection.', 'Crystal-clear audio, 40hr battery, ANC', 4999, 7999, 'WH-001', 50, 5, 1, 'cat-electronics', '["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', 1, 1, 0.3, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
+-- Pizza 2 (Pepperoni)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p2_s', 'pizza_2', 'Small (8")', 650),
+('var_p2_m', 'pizza_2', 'Medium (12")', 950),
+('var_p2_l', 'pizza_2', 'Large (16")', 1350);
 
-('prod-002', 'Smart Watch Series X Ultra', 'smart-watch-series-x', 'Stay connected with our premium smartwatch featuring health monitoring, GPS tracking, and a stunning AMOLED display. Water resistant up to 50m, with 7-day battery life.', 'Health tracking, GPS, 7-day battery', 12999, 15999, 'SW-001', 30, 5, 1, 'cat-electronics', '["https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop', 1, 1, 0.1, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
+-- Pizza 3 (BBQ Chicken)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p3_s', 'pizza_3', 'Small (8")', 750),
+('var_p3_m', 'pizza_3', 'Medium (12")', 1050),
+('var_p3_l', 'pizza_3', 'Large (16")', 1450);
 
-('prod-003', 'Vintage Camera Collection', 'vintage-camera-collection', 'Classic vintage-style camera for photography enthusiasts. Combines retro aesthetics with modern digital technology. 24MP sensor with 4K video capability.', 'Retro design, modern features', 15999, 19999, 'VC-001', 15, 3, 1, 'cat-electronics', '["https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop', 1, 1, 0.6, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
+-- Pizza 4 (Veggie)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p4_s', 'pizza_4', 'Small (8")', 500),
+('var_p4_m', 'pizza_4', 'Medium (12")', 800),
+('var_p4_l', 'pizza_4', 'Large (16")', 1200);
 
-('prod-004', 'Wireless Earbuds Pro', 'wireless-earbuds-pro', 'Premium true wireless earbuds with active noise cancellation, transparency mode, and immersive spatial audio. IPX4 water resistant with 30 hours total battery life.', 'ANC, Spatial Audio, 30hr battery', 6999, 8999, 'EB-001', 75, 10, 1, 'cat-electronics', '["https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop', 1, 1, 0.05, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
+-- Pizza 5 (Seafood)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p5_s', 'pizza_5', 'Small (8")', 900),
+('var_p5_m', 'pizza_5', 'Medium (12")', 1200),
+('var_p5_l', 'pizza_5', 'Large (16")', 1600);
 
-('prod-005', 'Portable Power Bank 20000mAh', 'portable-power-bank', 'High-capacity portable charger with fast charging support. Dual USB-C ports, can charge your phone 5+ times. Slim and lightweight design.', 'Fast charging, 20000mAh capacity', 2499, 3499, 'PB-001', 100, 15, 1, 'cat-electronics', '["https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop', 1, 0, 0.35, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
+-- Pizza 6 (Meat Lovers)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p6_s', 'pizza_6', 'Small (8")', 850),
+('var_p6_m', 'pizza_6', 'Medium (12")', 1150),
+('var_p6_l', 'pizza_6', 'Large (16")', 1550);
 
--- Insert Products - Fashion
-INSERT INTO products (id, name, slug, description, short_description, price, compare_at_price, sku, quantity, low_stock_threshold, track_quantity, category_id, images, featured_image, is_active, is_featured, weight, weight_unit, created_at, updated_at) VALUES
-('prod-006', 'Designer Leather Bag Premium', 'designer-leather-bag', 'Elegant genuine leather bag for the modern professional. Handcrafted from premium full-grain leather with brass hardware. Multiple compartments for organization.', 'Genuine leather, spacious design', 8499, NULL, 'LB-001', 20, 5, 1, 'cat-fashion', '["https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop', 1, 1, 0.8, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
+-- Pizza 7 (Four Cheese)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p7_s', 'pizza_7', 'Small (8")', 600),
+('var_p7_m', 'pizza_7', 'Medium (12")', 900),
+('var_p7_l', 'pizza_7', 'Large (16")', 1300);
 
-('prod-007', 'Classic Aviator Sunglasses', 'classic-aviator-sunglasses', 'Timeless aviator sunglasses with polarized lenses and gold metal frame. 100% UV protection. Comes with premium leather case.', 'Polarized, UV protection, gold frame', 3499, 4999, 'SG-001', 60, 10, 1, 'cat-fashion', '["https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop', 1, 0, 0.05, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-008', 'Premium Cotton T-Shirt', 'premium-cotton-tshirt', 'Super soft 100% organic cotton t-shirt with a relaxed fit. Pre-shrunk fabric, reinforced collar. Available in multiple colors.', 'Organic cotton, relaxed fit', 1299, 1799, 'TS-001', 150, 20, 1, 'cat-fashion', '["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop', 1, 0, 0.2, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-009', 'Leather Wallet Slim', 'leather-wallet-slim', 'Minimalist slim leather wallet with RFID blocking technology. Holds 6 cards plus cash. Made from genuine Italian leather.', 'RFID blocking, Italian leather', 1999, 2499, 'WL-001', 80, 10, 1, 'cat-fashion', '["https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&fit=crop', 1, 0, 0.1, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
-
--- Insert Products - Home & Living
-INSERT INTO products (id, name, slug, description, short_description, price, compare_at_price, sku, quantity, low_stock_threshold, track_quantity, category_id, images, featured_image, is_active, is_featured, weight, weight_unit, created_at, updated_at) VALUES
-('prod-010', 'Minimalist Desk Lamp', 'minimalist-desk-lamp', 'Modern LED desk lamp with adjustable brightness levels and color temperatures. Touch control with USB charging port. Energy efficient and eye-friendly.', 'Touch control, USB charging, LED', 2499, 3499, 'DL-001', 60, 10, 1, 'cat-home', '["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop', 1, 0, 0.4, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-011', 'Ceramic Plant Pot Set', 'ceramic-plant-pot-set', 'Set of 3 handmade ceramic plant pots in varying sizes. Drainage holes included. Perfect for succulents and small plants. Scandinavian design.', 'Handmade, set of 3, drainage holes', 1799, NULL, 'PP-001', 40, 8, 1, 'cat-home', '["https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop', 1, 0, 1.5, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-012', 'Scented Candle Collection', 'scented-candle-collection', 'Luxury soy wax candles with natural fragrance oils. Set of 4 premium scents: Lavender, Vanilla, Ocean Breeze, and Forest Pine. 40+ hours burn time each.', '4 scents, soy wax, 40hr burn time', 2299, 2999, 'SC-001', 55, 10, 1, 'cat-home', '["https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=400&fit=crop', 1, 1, 0.8, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
-
--- Insert Products - Sports
-INSERT INTO products (id, name, slug, description, short_description, price, compare_at_price, sku, quantity, low_stock_threshold, track_quantity, category_id, images, featured_image, is_active, is_featured, weight, weight_unit, created_at, updated_at) VALUES
-('prod-013', 'Running Sneakers Pro Max', 'running-sneakers-pro', 'Performance running shoes for serious athletes. Responsive cushioning, breathable mesh upper, and durable rubber outsole. Perfect for marathon training.', 'Lightweight, maximum comfort', 6999, 9999, 'RS-001', 45, 5, 1, 'cat-sports', '["https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', 1, 1, 0.5, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-014', 'Yoga Mat Premium', 'yoga-mat-premium', 'Extra thick 6mm yoga mat with non-slip surface. Eco-friendly TPE material, lightweight and easy to clean. Includes carrying strap.', 'Non-slip, 6mm thick, eco-friendly', 1999, 2799, 'YM-001', 70, 10, 1, 'cat-sports', '["https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=400&h=400&fit=crop', 1, 0, 1.0, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-015', 'Stainless Steel Water Bottle', 'stainless-steel-water-bottle', 'Double-wall vacuum insulated water bottle. Keeps drinks cold for 24 hours or hot for 12 hours. BPA-free, 750ml capacity.', 'Insulated, 24hr cold, 12hr hot', 1499, 1999, 'WB-001', 120, 15, 1, 'cat-sports', '["https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop', 1, 0, 0.3, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
-
--- Insert Products - Beauty
-INSERT INTO products (id, name, slug, description, short_description, price, compare_at_price, sku, quantity, low_stock_threshold, track_quantity, category_id, images, featured_image, is_active, is_featured, weight, weight_unit, created_at, updated_at) VALUES
-('prod-016', 'Natural Skincare Set', 'natural-skincare-set', 'Complete skincare routine with cleanser, toner, serum, and moisturizer. Made with organic ingredients. Suitable for all skin types.', 'Organic, 4-step routine', 4999, 6999, 'SS-001', 35, 5, 1, 'cat-beauty', '["https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop', 1, 1, 0.6, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-017', 'Essential Oil Diffuser', 'essential-oil-diffuser', 'Ultrasonic aromatherapy diffuser with color-changing LED lights. 300ml capacity, whisper quiet operation. Auto shut-off safety feature.', 'Ultrasonic, LED lights, 300ml', 2799, 3999, 'ED-001', 50, 8, 1, 'cat-beauty', '["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop', 1, 0, 0.4, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000),
-
-('prod-018', 'Makeup Brush Set Professional', 'makeup-brush-set-professional', '12-piece professional makeup brush set with synthetic bristles. Includes powder, blush, eyeshadow, and lip brushes. Comes with leather roll case.', '12 pieces, synthetic bristles', 2299, 3499, 'MB-001', 65, 10, 1, 'cat-beauty', '["https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=800&fit=crop"]', 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop', 1, 0, 0.25, 'kg', strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
-
--- Seed complete!
+-- Pizza 8 (Hawaiian)
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_p8_s', 'pizza_8', 'Small (8")', 650),
+('var_p8_m', 'pizza_8', 'Medium (12")', 950),
+('var_p8_l', 'pizza_8', 'Large (16")', 1350);

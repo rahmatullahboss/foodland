@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
@@ -19,13 +18,11 @@ interface ProductCardProps {
 }
 
 export function ProductCard({
-    id,
     name,
     description,
     price,
     image,
     isSpicy,
-    isHottest,
     isVeg,
     onAdd,
     className

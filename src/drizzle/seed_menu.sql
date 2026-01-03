@@ -1,7 +1,12 @@
 -- Clean up existing data to avoid duplicates
+PRAGMA defer_foreign_keys = 1;
+PRAGMA foreign_keys = OFF;
 DELETE FROM menu_item_variants;
 DELETE FROM menu_items;
 DELETE FROM categories;
+DELETE FROM reviews; -- Also helpful to clean this
+PRAGMA foreign_keys = ON;
+PRAGMA defer_foreign_keys = 0;
 
 -- 1. Seed Categories
 INSERT INTO categories (id, name, slug, sort_order, is_active) VALUES

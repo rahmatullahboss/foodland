@@ -12,9 +12,9 @@ account_id = "474078d5f990169d7dadf4e1df83214a"
 keep_names = false
 
 # Custom Domain Route
-# routes = [
-#   { pattern = "foodland.digitalcare.site", custom_domain = true }
-# ]
+routes = [
+  { pattern = "foodland.digitalcare.site", custom_domain = true }
+]
 
 # Enable observability/logging
 [observability]
@@ -54,10 +54,10 @@ database_id = "3cad0fb5-4cc8-419b-9979-d097ffa0260e"
 
 # Environment variables (non-sensitive)
 [vars]
-NEXT_PUBLIC_APP_URL = "https://store.digitalcare.site"
+NEXT_PUBLIC_APP_URL = "https://foodland.digitalcare.site"
 NEXT_PUBLIC_APP_NAME = "DC Store"
 NEXT_PUBLIC_BRAND_NAME = "DC Store"
-BETTER_AUTH_URL = "https://store.digitalcare.site"
+BETTER_AUTH_URL = "https://foodland.digitalcare.site"
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = "pk_test_51SirHkR4YQ09KMxr9eovrawaHmpnjgfwBgoI1sRiHf0wT1ciZ7SBFGcUUQpzKx86vRl3nFQC0Tdl4ll4TnjUru1X00f3JFVCZj"
 # Google OAuth Client IDs (public, for ID token verification)
 # The ID token's 'aud' claim contains the Web Client ID (client_type: 3)

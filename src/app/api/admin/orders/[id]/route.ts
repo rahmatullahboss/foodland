@@ -79,13 +79,15 @@ export async function PATCH(
       if (order?.items && order.status !== 'cancelled' && order.status !== 'refunded') {
         // Only restore stock if order wasn't already cancelled/refunded
         for (const item of order.items as OrderItem[]) {
-          await db
-            .update(products)
-            .set({
-              quantity: sql`COALESCE(${products.quantity}, 0) + ${item.quantity}`,
-              updatedAt: new Date(),
-            })
-            .where(eq(products.id, item.productId));
+          if (item.productId) {
+            await db
+              .update(products)
+              .set({
+                quantity: sql`COALESCE(${products.quantity}, 0) + ${item.quantity}`,
+                updatedAt: new Date(),
+              })
+              .where(eq(products.id, item.productId));
+          }
         }
         console.log(`Stock restored for cancelled/refunded order: ${order.orderNumber}`);
       }

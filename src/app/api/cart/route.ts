@@ -72,11 +72,14 @@ export async function GET(request: NextRequest) {
     const cartItems = cart.items || [];
     const enrichedItems = await Promise.all(
       cartItems.map(async (item) => {
-        const product = await db
-          .select()
-          .from(products)
-          .where(eq(products.id, item.productId))
-          .then((rows) => rows[0]);
+        let product;
+        if (item.productId) {
+          product = await db
+            .select()
+            .from(products)
+            .where(eq(products.id, item.productId))
+            .then((rows) => rows[0]);
+        }
 
         return {
           id: `${item.productId}-${item.variantId || "default"}`,

@@ -50,6 +50,13 @@
       "when": 1767283419442,
       "tag": "0006_unknown_hairball",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1767453148236,
+      "tag": "0007_eager_valkyrie",
+      "breakpoints": true
     }
   ]
 }

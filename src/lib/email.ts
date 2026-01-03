@@ -79,7 +79,7 @@ interface OrderEmailData {
   subtotal: number;
   shippingCost: number;
   total: number;
-  shippingAddress: Address;
+  deliveryAddress: Address;
   paymentMethod: string;
 }
 
@@ -164,11 +164,11 @@ function generateOrderConfirmationHTML(data: OrderEmailData): string {
           <!-- Shipping Address -->
           <h3 style="color: #333; border-bottom: 2px solid #f59e0b; padding-bottom: 10px;">Shipping Address</h3>
           <div style="background: #f9fafb; border-radius: 12px; padding: 20px; margin-bottom: 25px;">
-            <p style="margin: 0; color: #333;"><strong>${data.shippingAddress.name}</strong></p>
-            <p style="margin: 5px 0 0; color: #666;">${data.shippingAddress.phone}</p>
-            <p style="margin: 5px 0 0; color: #666;">${data.shippingAddress.address}</p>
-            <p style="margin: 5px 0 0; color: #666;">${data.shippingAddress.city}, ${data.shippingAddress.state || ''}</p>
-            <p style="margin: 5px 0 0; color: #666;">${data.shippingAddress.country}</p>
+            <p style="margin: 0; color: #333;"><strong>${data.deliveryAddress.name}</strong></p>
+            <p style="margin: 5px 0 0; color: #666;">${data.deliveryAddress.phone}</p>
+            <p style="margin: 5px 0 0; color: #666;">${data.deliveryAddress.address}</p>
+            <p style="margin: 5px 0 0; color: #666;">${data.deliveryAddress.city}, ${data.deliveryAddress.state || ''}</p>
+            <p style="margin: 5px 0 0; color: #666;">${data.deliveryAddress.country}</p>
           </div>
           
           <!-- Payment Method -->

@@ -40,6 +40,8 @@ export async function POST(request: Request) {
 
     // Validate stock availability for all items before creating order
     for (const item of body.items) {
+      if (!item.productId) continue;
+
       const product = await db
         .select({ quantity: products.quantity, name: products.name })
         .from(products)
@@ -126,8 +128,7 @@ export async function POST(request: Request) {
       customerName: body.customerName,
       customerEmail: body.customerEmail || null,
       customerPhone: body.customerPhone,
-      shippingAddress: body.shippingAddress,
-      billingAddress: body.shippingAddress,
+      deliveryAddress: body.shippingAddress,
       notes: body.notes || null,
       items: body.items,
     };
@@ -136,6 +137,8 @@ export async function POST(request: Request) {
 
     // Reduce stock for each product in the order
     for (const item of body.items) {
+      if (!item.productId) continue;
+
       await db
         .update(products)
         .set({
@@ -153,7 +156,7 @@ export async function POST(request: Request) {
       await serverEvents.purchase({
         orderId: orderNumber,
         value: body.total,
-        contentIds: body.items.map((item) => item.productId),
+        contentIds: body.items.map((item) => item.productId).filter((id): id is string => !!id),
         numItems: body.items.reduce((sum, item) => sum + item.quantity, 0),
         userData: {
           email: body.customerEmail || undefined,
@@ -186,7 +189,8 @@ export async function POST(request: Request) {
           subtotal: body.subtotal,
           shippingCost: body.shippingCost,
           total: body.total,
-          shippingAddress: body.shippingAddress,
+
+          deliveryAddress: body.shippingAddress,
           paymentMethod: body.paymentMethod || 'cod',
         });
         if (!emailResult.success) {

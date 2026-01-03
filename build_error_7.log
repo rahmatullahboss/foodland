@@ -1,0 +1,24 @@
+
+> dc-store@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.9
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.3s
+   Linting and checking validity of types ...
+Failed to compile.
+
+./src/app/api/admin/reviews/route.ts:34:28
+Type error: Property 'productId' does not exist on type 'SQLiteTableWithColumns<{ name: "reviews"; schema: undefined; columns: { id: SQLiteColumn<{ name: "id"; tableName: "reviews"; dataType: "string"; columnType: "SQLiteText"; data: string; driverParam: string; notNull: true; hasDefault: false; ... 6 more ...; generated: undefined; }, {}, { ...; }>; ... 8 more ...; updat...'.
+
+[0m [90m 32 |[39m       [33m.[39mselect({
+ [90m 33 |[39m         id[33m:[39m reviews[33m.[39mid[33m,[39m
+[31m[1m>[22m[39m[90m 34 |[39m         productId[33m:[39m reviews[33m.[39mproductId[33m,[39m
+ [90m    |[39m                            [31m[1m^[22m[39m
+ [90m 35 |[39m         productName[33m:[39m products[33m.[39mname[33m,[39m
+ [90m 36 |[39m         userName[33m:[39m users[33m.[39mname[33m,[39m
+ [90m 37 |[39m         rating[33m:[39m reviews[33m.[39mrating[33m,[39m[0m
+Next.js build worker exited with code: 1 and signal: null
