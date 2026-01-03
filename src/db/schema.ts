@@ -109,9 +109,11 @@ export const categories = sqliteTable("categories", {
 
 export const menuItems = sqliteTable("menu_items", {
   id: text("id").primaryKey(),
-  name: text("name").notNull(),
+  nameEn: text("name_en").notNull(),
+  nameBn: text("name_bn"),
   slug: text("slug").notNull().unique(),
-  description: text("description"),
+  descriptionEn: text("description_en"),
+  descriptionBn: text("description_bn"),
   price: real("price").notNull(),
   costPrice: real("cost_price"),
   sku: text("sku"),
@@ -186,7 +188,7 @@ export const orders = sqliteTable("orders", {
     enum: [
       "pending",
       "confirmed",
-      "preparing", 
+      "preparing",
       "ready",
       "served",
       "delivered",

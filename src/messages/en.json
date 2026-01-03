@@ -1,0 +1,58 @@
+{
+    "Nav": {
+        "home": "Home",
+        "menu": "Menu",
+        "reservation": "Reservation",
+        "about": "Our Story",
+        "contact": "Contact",
+        "orders": "My Orders"
+    },
+    "Hero": {
+        "title": "A Symphony of Flavors",
+        "subtitle": "Experience world-class multi-cuisine fine dining at Foodland.",
+        "cta_reserve": "Reserve a Table",
+        "cta_order": "Order Online"
+    },
+    "Home": {
+        "featured": "Signature Dishes",
+        "about_title": "The Chef's Story",
+        "ambiance_title": "Exquisite Ambiance"
+    },
+    "Menu": {
+        "title": "Our Menu",
+        "subtitle": "Experience Luxury Dining",
+        "starters": "Starters",
+        "mains": "Main Course",
+        "desserts": "Desserts",
+        "drinks": "Beverages",
+        "add_to_order": "Add to Plate",
+        "items_selected": "{count} items selected",
+        "total": "Total",
+        "checkout": "Place Order"
+    },
+    "Product": {
+        "ingredients": "Ingredients",
+        "spicy": "Spicy",
+        "veg": "Vegetarian",
+        "portion": "Portion Size",
+        "regular": "Regular",
+        "large": "Large",
+        "addons": "Add-ons"
+    },
+    "Reservation": {
+        "title": "Book Your Table",
+        "name": "Full Name",
+        "phone": "Phone Number",
+        "date": "Date",
+        "time": "Time",
+        "guests": "Number of Guests",
+        "requests": "Special Requests",
+        "submit": "Confirm Reservation",
+        "success": "Table Reserved Successfully!"
+    },
+    "Footer": {
+        "address": "Address",
+        "hours": "Opening Hours",
+        "rights": "All rights reserved."
+    }
+}

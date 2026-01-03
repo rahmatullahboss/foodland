@@ -11,8 +11,8 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
   // Image optimization configuration with Cloudinary loader
   images: {
-    loader: "custom",
-    loaderFile: "./src/lib/cloudinary-loader.ts",
+    // loader: "custom",
+    // loaderFile: "./src/lib/cloudinary-loader.ts",
     remotePatterns: [
       {
         protocol: "https",
