@@ -1,0 +1,90 @@
+# Wrangler Configuration for DC Store
+# https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "foodland"
+main = ".open-next/worker.js"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "474078d5f990169d7dadf4e1df83214a"
+
+# Disable esbuild keep_names to fix next-themes "__name is not defined" error
+# Requires Wrangler 4.13.0+ | See: https://opennext.js.org/cloudflare/howtos/keep_names
+keep_names = false
+
+# Custom Domain Route
+# routes = [
+#   { pattern = "foodland.digitalcare.site", custom_domain = true }
+# ]
+
+# Enable observability/logging
+[observability]
+enabled = true
+head_sampling_rate = 1  # 100% of requests logged
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+head_sampling_rate = 1
+persist = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 1
+persist = true
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "foodland-db"
+database_id = "3cad0fb5-4cc8-419b-9979-d097ffa0260e"
+migrations_dir = "drizzle/migrations"
+
+# KV Namespace for ISR Cache (OpenNext expects this exact binding name)
+[[kv_namespaces]]
+binding = "NEXT_INC_CACHE_KV"
+id = "c8de69b9c1184c389b10d10d058f3cea"
+
+# D1 binding for OpenNext Tag Cache (for on-demand revalidation)
+[[d1_databases]]
+binding = "NEXT_TAG_CACHE_D1"
+database_name = "foodland-db"
+database_id = "3cad0fb5-4cc8-419b-9979-d097ffa0260e"
+
+# Using Cloudinary for image storage instead of R2
+
+# Environment variables (non-sensitive)
+[vars]
+NEXT_PUBLIC_APP_URL = "https://store.digitalcare.site"
+NEXT_PUBLIC_APP_NAME = "DC Store"
+NEXT_PUBLIC_BRAND_NAME = "DC Store"
+BETTER_AUTH_URL = "https://store.digitalcare.site"
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = "pk_test_51SirHkR4YQ09KMxr9eovrawaHmpnjgfwBgoI1sRiHf0wT1ciZ7SBFGcUUQpzKx86vRl3nFQC0Tdl4ll4TnjUru1X00f3JFVCZj"
+# Google OAuth Client IDs (public, for ID token verification)
+# The ID token's 'aud' claim contains the Web Client ID (client_type: 3)
+GOOGLE_CLIENT_ID = "46787300862-ev3ra7q0t5e1jrr1jal8tas61p33v9hr.apps.googleusercontent.com"
+GOOGLE_IOS_CLIENT_ID = "46787300862-lo0fvlgsg534qul73adhk8m2aedmv8e8.apps.googleusercontent.com"
+# Android client ID (client_type: 1) for com.dcstore.mobile_app
+GOOGLE_ANDROID_CLIENT_ID = "46787300862-bcl3nmgqhkhk5082ds6to6mspeh8srv1.apps.googleusercontent.com"
+# Analytics & Tracking
+NEXT_PUBLIC_MICROSOFT_CLARITY_ID = "uuwbz0s2cv"
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID = "G-6EGKHYGS5J"
+
+# Secrets (set via: npx wrangler secret put SECRET_NAME)
+# - BETTER_AUTH_SECRET
+# - GOOGLE_CLIENT_ID
+# - GOOGLE_CLIENT_SECRET
+# - CLOUDINARY_API_KEY
+# - CLOUDINARY_API_SECRET
+# - NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+# - GROQ_API_KEY
+# - RESEND_API_KEY (for order confirmation emails)
+# - STRIPE_SECRET_KEY ✅ (already set)
+
+# Assets configuration
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+# Build configuration
+[build]
+command = "npx opennextjs-cloudflare build"
