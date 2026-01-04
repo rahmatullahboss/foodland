@@ -147,7 +147,7 @@ export default function BurgerCategoryLayout({
                 <Badge className="mb-6 bg-yellow-500 hover:bg-yellow-600 text-black border-none px-4 py-1 text-sm uppercase tracking-widest">
                     Premium Selections
                 </Badge>
-                <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter mb-6 shadow-xl text-white">
+                <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter mb-6 shadow-xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-600">
                     {categoryName}
                 </h1>
                 {description && (

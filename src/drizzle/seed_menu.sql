@@ -11,7 +11,7 @@ PRAGMA defer_foreign_keys = 0;
 -- 1. Seed Categories
 INSERT INTO categories (id, name, slug, sort_order, is_active) VALUES
 ('cat_pizza', 'Pizza', 'pizza', 10, 1),
-('cat_burger', 'Burger & Sandwich', 'burger-sandwich', 20, 1),
+('cat_burger', 'Burger & Sub Burger', 'burger-sub-burger', 20, 1),
 ('cat_pasta', 'Pasta & Chowmein', 'pasta-chowmein', 30, 1),
 ('cat_rice', 'Rice & Biryani', 'rice-biryani', 40, 1),
 ('cat_setmenu', 'Set Menu', 'set-menu', 50, 1),
