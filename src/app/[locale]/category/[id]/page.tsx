@@ -13,6 +13,7 @@ import PizzaCategoryLayout from "@/components/PizzaCategoryLayout";
 import JuiceCategoryLayout from "@/components/JuiceCategoryLayout";
 import SetMenuCategoryLayout from "@/components/SetMenuCategoryLayout";
 import BurgerCategoryLayout from "@/components/BurgerCategoryLayout";
+import SandwichMomoCategoryLayout from "@/components/SandwichMomoCategoryLayout";
 import Header from "@/components/Header";
 
 
@@ -25,7 +26,7 @@ interface CategoryPageProps {
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { id } = await params;
+  const { id, locale } = await params;
   let env;
   
   try {
@@ -90,6 +91,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   // Specialized Layout for Burger
   if (id === 'cat_burger') {
     return <BurgerCategoryLayout categoryName={category.name} items={items as unknown as any[]} />;
+  }
+
+  // Specialized Layout for Sandwich & Momo
+  if (id === 'cat_sandwich_momo') {
+    return <SandwichMomoCategoryLayout categoryName={category.name} items={items as unknown as any[]} locale={locale} />;
   }
 
   return (
