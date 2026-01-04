@@ -83,24 +83,24 @@ const HeroSection = () => {
             <nav className="relative z-50 flex items-center justify-between px-6 py-6 md:px-12">
                 {/* Left Links */}
                 <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-white/90">
+                    <Link href="/en" className="hover:text-primary transition-colors">Home</Link>
                     <Link href="/en/categories" className="hover:text-primary transition-colors">Category</Link>
                     <Link href="/en/categories" className="hover:text-primary transition-colors">Offer</Link>
-                    <Link href="/en/categories" className="hover:text-primary transition-colors">Recipes</Link>
                     <Link href="/en/contact" className="hover:text-primary transition-colors">Contact</Link>
                 </div>
 
                 {/* Mobile Menu Placeholder (Hamburger would go here) */}
                 <div className="md:hidden text-white">
                     {/* Simplified for now */}
-                    <span className="font-bold">Category</span>
+                    <Link href="/en/categories" className="font-bold">Menu</Link>
                 </div>
 
                 {/* Center Logo */}
                 <div className="absolute left-1/2 top-6 -translate-x-1/2 text-center">
                    <div className="flex flex-col items-center justify-center">
-                        <Link href="/" className="text-2xl font-bold font-serif text-white tracking-wider">
-                           <span className="italic">Chili</span> <br/>
-                           <span>Pepper</span>
+                        <Link href="/en" className="text-2xl font-bold font-serif text-white tracking-wider">
+                           <span className="italic">Food</span> <br/>
+                           <span>land</span>
                         </Link>
                    </div>
                 </div>
