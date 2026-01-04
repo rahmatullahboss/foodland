@@ -24,14 +24,14 @@ INSERT INTO categories (id, name, slug, sort_order, is_active) VALUES
 
 -- 2. Seed Menu Items
 
--- Pizza (Image: 605102431...jpg)
+-- Pizza (with photorealistic images)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('piz_1', 'Foodland Special Pizza', 'ফুডল্যান্ড স্পেশাল পিৎজা', 'Size: 8"-700, 10"-900, 12"-1100', 'সাইজ: ৮"-৭০০, ১০"-৯০০, ১২"-১১০০', 'foodland-special-pizza', 700, 'cat_pizza', '/images/605102431_851589250973307_8466811291807877231_n.jpg', 1),
-('piz_2', 'BBQ Pizza', 'বি.বি.কিউ পিৎজা', 'Size: 8"-580, 10"-750, 12"-920', 'সাইজ: ৮"-৫৮০, ১০"-৭৫০, ১২"-৯২০', 'bbq-pizza', 580, 'cat_pizza', '/images/605102431_851589250973307_8466811291807877231_n.jpg', 1),
-('piz_3', '4 Seasons Pizza', '৪ সিজন পিৎজা', 'Size: 8"-600, 10"-800, 12"-980', 'সাইজ: ৮"-৬০০, ১০"-৮০০, ১২"-৯৮০', '4-seasons-pizza', 600, 'cat_pizza', '/images/605102431_851589250973307_8466811291807877231_n.jpg', 1),
-('piz_4', 'Mexican Pizza', 'মেক্সিকান পিৎজা', 'Size: 8"-590, 10"-750, 12"-900', 'সাইজ: ৮"-৫৯০, ১০"-৭৫০, ১২"-৯০০', 'mexican-pizza', 590, 'cat_pizza', '/images/605102431_851589250973307_8466811291807877231_n.jpg', 1),
-('piz_5', 'Chicken Pepperoni Pizza', 'চিকেন পেপারনি পিৎজা', 'Size: 8"-600, 10"-780, 12"-950', 'সাইজ: ৮"-৬০০, ১০"-৭৮০, ১২"-৯৫০', 'chicken-pepperoni-pizza', 600, 'cat_pizza', '/images/605102431_851589250973307_8466811291807877231_n.jpg', 1),
-('piz_6', 'Italian Pizza', 'ইতালিয়ান পিৎজা', 'Size: 8"-499, 10"-650, 12"-800', 'সাইজ: ৮"-৪৯৯, ১০"-৬৫০, ১২"-৮০০', 'italian-pizza', 499, 'cat_pizza', '/images/605102431_851589250973307_8466811291807877231_n.jpg', 1);
+('piz_1', 'Foodland Special Pizza', 'ফুডল্যান্ড স্পেশাল পিৎজা', 'Size: 8"-700, 10"-900, 12"-1100', 'সাইজ: ৮"-৭০০, ১০"-৯০০, ১২"-১১০০', 'foodland-special-pizza', 700, 'cat_pizza', '/images/pizza_foodland_special.png', 1),
+('piz_2', 'BBQ Pizza', 'বি.বি.কিউ পিৎজা', 'Size: 8"-580, 10"-750, 12"-920', 'সাইজ: ৮"-৫৮০, ১০"-৭৫০, ১২"-৯২০', 'bbq-pizza', 580, 'cat_pizza', '/images/pizza_bbq.png', 1),
+('piz_3', '4 Seasons Pizza', '৪ সিজন পিৎজা', 'Size: 8"-600, 10"-800, 12"-980', 'সাইজ: ৮"-৬০০, ১০"-৮০০, ১২"-৯৮০', '4-seasons-pizza', 600, 'cat_pizza', '/images/pizza_four_seasons.png', 1),
+('piz_4', 'Mexican Pizza', 'মেক্সিকান পিৎজা', 'Size: 8"-590, 10"-750, 12"-900', 'সাইজ: ৮"-৫৯০, ১০"-৭৫০, ১২"-৯০০', 'mexican-pizza', 590, 'cat_pizza', '/images/pizza_mexican.png', 1),
+('piz_5', 'Chicken Pepperoni Pizza', 'চিকেন পেপারনি পিৎজা', 'Size: 8"-600, 10"-780, 12"-950', 'সাইজ: ৮"-৬০০, ১০"-৭৮০, ১২"-৯৫০', 'chicken-pepperoni-pizza', 600, 'cat_pizza', '/images/pizza_chicken_pepperoni.png', 1),
+('piz_6', 'Italian Pizza', 'ইতালিয়ান পিৎজা', 'Size: 8"-499, 10"-650, 12"-800', 'সাইজ: ৮"-৪৯৯, ১০"-৬৫০, ১২"-৮০০', 'italian-pizza', 499, 'cat_pizza', '/images/pizza_italian.png', 1);
 
 -- Rice & Biryani (Image: 605122798...jpg, 605817716...jpg)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
