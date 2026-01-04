@@ -89,7 +89,7 @@ export default function AppetizerCategoryLayout({
           {/* Main Title Area */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 relative z-10">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-yellow-500 leading-none tracking-tight">
-              LOVE OF <br className="hidden md:block" />
+              APPETIZERS &amp; <br className="hidden md:block" />
               <span className="italic text-white">FRY</span>
             </h1>
             
