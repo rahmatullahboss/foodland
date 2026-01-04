@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Header from "./Header";
 
+import { Badge } from "@/components/ui/badge";
+
 interface AppetizerCategoryLayoutProps {
   categoryName: string;
   items: MenuItem[];
@@ -21,27 +23,40 @@ const AppetizerItemCard = ({ item, index }: { item: MenuItem; index: number }) =
       viewport={{ once: true }}
       className="flex flex-col items-center text-center p-6 group"
     >
-      <div className="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] mb-6 rounded-full overflow-hidden border-4 border-yellow-500/20 group-hover:border-yellow-500/50 transition-colors duration-500 shadow-2xl shadow-black/50">
-        <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-500" />
-        {item.images && item.images.length > 0 ? (
-          <Image
-            src={item.images[0]}
-            alt={item.nameEn}
-            fill
-            className="object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 ease-in-out"
-          />
-        ) : item.featuredImage ? (
-          <Image
-            src={item.featuredImage}
-            alt={item.nameEn}
-            fill
-            className="object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 ease-in-out"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-zinc-900">
-             <span className="text-6xl">🍟</span>
-          </div>
-        )}
+      {/* Image Container with Price Badge */}
+      <div className="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] mb-6">
+        {/* Glowing effect behind */}
+        <div className="absolute inset-0 bg-yellow-500/20 blur-[50px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-700"></div>
+        
+        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-yellow-500/20 group-hover:border-yellow-500/50 transition-colors duration-500 shadow-2xl shadow-black/50">
+          <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-500" />
+          {item.images && item.images.length > 0 ? (
+            <Image
+              src={item.images[0]}
+              alt={item.nameEn}
+              fill
+              className="object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 ease-in-out"
+            />
+          ) : item.featuredImage ? (
+            <Image
+              src={item.featuredImage}
+              alt={item.nameEn}
+              fill
+              className="object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 ease-in-out"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-zinc-900">
+               <span className="text-6xl">🍟</span>
+            </div>
+          )}
+        </div>
+        
+        {/* Price Badge - positioned like Pizza */}
+        <div className="absolute -top-2 -right-2 z-20">
+          <Badge className="bg-yellow-500 text-black hover:bg-yellow-400 border-none text-lg px-4 py-2 font-bold rounded-full whitespace-nowrap shadow-lg">
+            {item.price}<span className="text-xs align-top ml-0.5">৳</span>
+          </Badge>
+        </div>
       </div>
 
       <h3 className="text-xl md:text-2xl font-bold text-yellow-500 mb-2 uppercase tracking-wide">
@@ -50,10 +65,6 @@ const AppetizerItemCard = ({ item, index }: { item: MenuItem; index: number }) =
        <p className="text-gray-400 text-sm md:text-base mb-4 line-clamp-2 max-w-xs h-10">
           {item.descriptionEn}
        </p>
-
-      <div className="text-2xl font-bold text-white mb-4">
-        Tk {item.price}/-
-      </div>
 
       <Button 
           variant="outline"

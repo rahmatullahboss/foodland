@@ -170,7 +170,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
                     {item.nameEn}
                   </h3>
                   
-                  <div className="pt-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                  <div className="pt-4 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
                       <Button 
                         onClick={() => handleAddToCartClick(item)}
                         variant="outline" 
