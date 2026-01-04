@@ -9,7 +9,8 @@ import { ArrowRight } from "lucide-react";
 // Category data with generated images
 const categories = [
   { id: "cat_pizza", name: "Pizza", image: "/images/category_pizza_1767458191066.png" },
-  { id: "cat_burger", name: "Burger & Sandwich", image: "/images/category_burger_1767458206673.png" },
+  { id: "cat_burger", name: "Burger & Sub Burger", image: "/images/category_burger_1767458206673.png" },
+  { id: "cat_sandwich_momo", name: "Sandwich & Momo", image: "/images/category_sandwich_momo.png" },
   { id: "cat_pasta", name: "Pasta & Chowmein", image: "/images/category_pasta_1767458227513.png" },
   { id: "cat_rice", name: "Rice & Biryani", image: "/images/category_rice_1767458244434.png" },
   { id: "cat_setmenu", name: "Set Menu", image: "/images/category_setmenu_1767458264895.png" },
@@ -18,7 +19,7 @@ const categories = [
   { id: "cat_soup", name: "Soup", image: "/images/category_soup_1767458326427.png" },
   { id: "cat_appetizer", name: "Appetizers & Fry", image: "/images/category_appetizer_1767458347302.png" },
   { id: "cat_drinks", name: "Drinks & Desserts", image: "/images/category_drinks_1767458363774.png" },
-  { id: "cat_platter", name: "Party Platter", image: "/images/category_setmenu_1767458264895.png" }, // Fallback image
+  { id: "cat_platter", name: "Party Platter", image: "/images/category_setmenu_1767458264895.png" },
 ];
 
 const containerVariants = {
@@ -74,7 +75,7 @@ export default function CategoriesSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-8"
         >
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <motion.div key={category.id} variants={itemVariants}>
               <Link href={`/en/category/${category.id}`}>
                 <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer border border-white/5 hover:border-primary/30 transition-all duration-500 bg-[#111]">
@@ -83,6 +84,9 @@ export default function CategoriesSection() {
                     src={category.image}
                     alt={category.name}
                     fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                    priority={index < 5}
+                    loading={index < 5 ? "eager" : "lazy"}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   
