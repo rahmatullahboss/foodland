@@ -12,8 +12,7 @@ PRAGMA defer_foreign_keys = 0;
 INSERT INTO categories (id, name, slug, sort_order, is_active) VALUES
 ('cat_pizza', 'Pizza', 'pizza', 10, 1),
 ('cat_burger', 'Burger & Sub Burger', 'burger-sub-burger', 20, 1),
-('cat_sandwich', 'Sandwich', 'sandwich', 25, 1),
-('cat_momo', 'Momo', 'momo', 27, 1),
+('cat_sandwich_momo', 'Sandwich & Momo', 'sandwich-momo', 25, 1),
 ('cat_pasta', 'Pasta & Chowmein', 'pasta-chowmein', 30, 1),
 ('cat_rice', 'Rice & Biryani', 'rice-biryani', 40, 1),
 ('cat_setmenu', 'Set Menu', 'set-menu', 50, 1),
@@ -69,15 +68,12 @@ INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, sl
 ('burg_6', 'Naga Cheese Burger', 'নাগা চিজ বার্গার', '', '', 'naga-cheese-burger', 330, 'cat_burger', '/images/burgers/burger_naga_cheese.png', 1),
 ('burg_7', 'Crispy Chicken Cheese Burger', 'ক্রিসপি চিকেন চিজ বার্গার', '', '', 'crispy-chicken-cheese-burger', 380, 'cat_burger', '/images/burgers/burger_crispy_chicken_cheese.png', 1);
 
--- Sandwich (স্যান্ডউইচ) - separate category
+-- Sub Burger (সাব বার্গার) - part of Burger & Sub Burger category
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('sub_1', 'Chicken Cheese Sub', 'চিকেন চিজ সাব', '', '', 'chicken-cheese-sub', 380, 'cat_sandwich', '/images/burgers/sub_chicken_cheese.png', 1),
-('sub_2', 'BBQ Chicken Sub', 'বি.বি.কিউ চিকেন সাব', '', '', 'bbq-chicken-sub', 400, 'cat_sandwich', '/images/burgers/sub_bbq_chicken.png', 1);
+('sub_1', 'Chicken Cheese Sub', 'চিকেন চিজ সাব', '', '', 'chicken-cheese-sub', 380, 'cat_burger', '/images/burgers/sub_chicken_cheese.png', 1),
+('sub_2', 'BBQ Chicken Sub', 'বি.বি.কিউ চিকেন সাব', '', '', 'bbq-chicken-sub', 400, 'cat_burger', '/images/burgers/sub_bbq_chicken.png', 1);
 
--- Momo (মোমো) - separate category
-INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('momo_1', 'Chicken Steam Momo', 'চিকেন স্টিম মোমো', '6 pcs', '৬ পিস', 'chicken-steam-momo', 320, 'cat_momo', '/images/606858522_851589207639978_765950520261064099_n.jpg', 1),
-('momo_2', 'Chicken Fry Momo', 'চিকেন ফ্রাই মোমো', '6 pcs', '৬ পিস', 'chicken-fry-momo', 350, 'cat_momo', '/images/606858522_851589207639978_765950520261064099_n.jpg', 1);
+-- Sandwich & Momo category - items will be added later
 
 -- Appetizers & Soup (Image: 605687573...jpg, 605157204...jpg)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
