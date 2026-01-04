@@ -24,14 +24,16 @@ INSERT INTO categories (id, name, slug, sort_order, is_active) VALUES
 
 -- 2. Seed Menu Items
 
--- Pizza (with photorealistic images)
+-- Pizza (with photorealistic images - all 8 items)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('piz_1', 'Foodland Special Pizza', 'ফুডল্যান্ড স্পেশাল পিৎজা', 'Size: 8"-700, 10"-900, 12"-1100', 'সাইজ: ৮"-৭০০, ১০"-৯০০, ১২"-১১০০', 'foodland-special-pizza', 700, 'cat_pizza', '/images/pizza_foodland_special.png', 1),
-('piz_2', 'BBQ Pizza', 'বি.বি.কিউ পিৎজা', 'Size: 8"-580, 10"-750, 12"-920', 'সাইজ: ৮"-৫৮০, ১০"-৭৫০, ১২"-৯২০', 'bbq-pizza', 580, 'cat_pizza', '/images/pizza_bbq.png', 1),
-('piz_3', '4 Seasons Pizza', '৪ সিজন পিৎজা', 'Size: 8"-600, 10"-800, 12"-980', 'সাইজ: ৮"-৬০০, ১০"-৮০০, ১২"-৯৮০', '4-seasons-pizza', 600, 'cat_pizza', '/images/pizza_four_seasons.png', 1),
-('piz_4', 'Mexican Pizza', 'মেক্সিকান পিৎজা', 'Size: 8"-590, 10"-750, 12"-900', 'সাইজ: ৮"-৫৯০, ১০"-৭৫০, ১২"-৯০০', 'mexican-pizza', 590, 'cat_pizza', '/images/pizza_mexican.png', 1),
-('piz_5', 'Chicken Pepperoni Pizza', 'চিকেন পেপারনি পিৎজা', 'Size: 8"-600, 10"-780, 12"-950', 'সাইজ: ৮"-৬০০, ১০"-৭৮০, ১২"-৯৫০', 'chicken-pepperoni-pizza', 600, 'cat_pizza', '/images/pizza_chicken_pepperoni.png', 1),
-('piz_6', 'Italian Pizza', 'ইতালিয়ান পিৎজা', 'Size: 8"-499, 10"-650, 12"-800', 'সাইজ: ৮"-৪৯৯, ১০"-৬৫০, ১২"-৮০০', 'italian-pizza', 499, 'cat_pizza', '/images/pizza_italian.png', 1);
+('piz_1', 'Foodland Special Pizza', 'ফুডল্যান্ড স্পেশাল পিৎজা', '', '', 'foodland-special-pizza', 700, 'cat_pizza', '/images/pizza_foodland_special.png', 1),
+('piz_2', 'BBQ Pizza', 'বি.বি.কিউ পিৎজা', '', '', 'bbq-pizza', 580, 'cat_pizza', '/images/pizza_bbq.png', 1),
+('piz_3', '4 Seasons Pizza', '৪ সিজন পিৎজা', '', '', '4-seasons-pizza', 600, 'cat_pizza', '/images/pizza_four_seasons.png', 1),
+('piz_4', 'Mexican Pizza', 'মেক্সিকান পিৎজা', '', '', 'mexican-pizza', 590, 'cat_pizza', '/images/pizza_mexican.png', 1),
+('piz_5', 'Chicken Pepperoni Pizza', 'চিকেন পেপারনি পিৎজা', '', '', 'chicken-pepperoni-pizza', 600, 'cat_pizza', '/images/pizza_chicken_pepperoni.png', 1),
+('piz_6', 'Italian Pizza', 'ইতালিয়ান পিৎজা', '', '', 'italian-pizza', 499, 'cat_pizza', '/images/pizza_italian.png', 1),
+('piz_7', 'Chicken Supreme Pizza', 'চিকেন সুপ্রিম পিৎজা', '', '', 'chicken-supreme-pizza', 540, 'cat_pizza', '/images/pizza_chicken_supreme.png', 1),
+('piz_8', 'Chicken Naga Pizza', 'চিকেন নাগা পিৎজা', '', '', 'chicken-naga-pizza', 500, 'cat_pizza', '/images/pizza_chicken_naga.png', 1);
 
 -- Rice & Biryani (Image: 605122798...jpg, 605817716...jpg)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
@@ -80,3 +82,38 @@ INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, sl
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
 ('set_1', 'Regular Set Menu 1', 'সেট মেনু ১', 'Fried Rice, Chicken, Veg', 'ফ্রাইড রাইস, চিকেন, ভেজিটেবল', 'set-menu-1', 600, 'cat_setmenu', '/images/607645220_851589400973292_8610932934850572722_n.jpg', 1),
 ('set_2', 'Couple Set Menu 1', 'কাপল সেট মেনু ১', 'For 2 Persons', '২ জনের জন্য', 'couple-set-1', 800, 'cat_setmenu', '/images/605817716_851589344306631_5321405325789133679_n.jpg', 1);
+
+-- 3. Seed Pizza Size Variants (8", 10", 12")
+INSERT INTO menu_item_variants (id, menu_item_id, name, price) VALUES
+-- Foodland Special Pizza: 8"-700, 10"-900, 12"-1100
+('piz_1_8', 'piz_1', '8" (Small)', 700),
+('piz_1_10', 'piz_1', '10" (Medium)', 900),
+('piz_1_12', 'piz_1', '12" (Large)', 1100),
+-- BBQ Pizza: 8"-580, 10"-750, 12"-920
+('piz_2_8', 'piz_2', '8" (Small)', 580),
+('piz_2_10', 'piz_2', '10" (Medium)', 750),
+('piz_2_12', 'piz_2', '12" (Large)', 920),
+-- 4 Seasons Pizza: 8"-600, 10"-800, 12"-980
+('piz_3_8', 'piz_3', '8" (Small)', 600),
+('piz_3_10', 'piz_3', '10" (Medium)', 800),
+('piz_3_12', 'piz_3', '12" (Large)', 980),
+-- Mexican Pizza: 8"-590, 10"-750, 12"-900
+('piz_4_8', 'piz_4', '8" (Small)', 590),
+('piz_4_10', 'piz_4', '10" (Medium)', 750),
+('piz_4_12', 'piz_4', '12" (Large)', 900),
+-- Chicken Pepperoni Pizza: 8"-600, 10"-780, 12"-950
+('piz_5_8', 'piz_5', '8" (Small)', 600),
+('piz_5_10', 'piz_5', '10" (Medium)', 780),
+('piz_5_12', 'piz_5', '12" (Large)', 950),
+-- Italian Pizza: 8"-499, 10"-650, 12"-800
+('piz_6_8', 'piz_6', '8" (Small)', 499),
+('piz_6_10', 'piz_6', '10" (Medium)', 650),
+('piz_6_12', 'piz_6', '12" (Large)', 800),
+-- Chicken Supreme Pizza: 8"-540, 10"-700, 12"-860
+('piz_7_8', 'piz_7', '8" (Small)', 540),
+('piz_7_10', 'piz_7', '10" (Medium)', 700),
+('piz_7_12', 'piz_7', '12" (Large)', 860),
+-- Chicken Naga Pizza: 8"-500, 10"-650, 12"-800
+('piz_8_8', 'piz_8', '8" (Small)', 500),
+('piz_8_10', 'piz_8', '10" (Medium)', 650),
+('piz_8_12', 'piz_8', '12" (Large)', 800);

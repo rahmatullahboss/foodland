@@ -165,13 +165,10 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
                 </div>
 
                 {/* Content */}
-                <div className="space-y-3 z-10 w-full px-4">
+                <div className="space-y-4 z-10 w-full px-4">
                   <h3 className="text-2xl font-serif text-white uppercase tracking-wide group-hover:text-[#c6a87c] transition-colors duration-300">
                     {item.nameEn}
                   </h3>
-                  <p className="text-white/60 font-sans text-sm leading-relaxed min-h-[40px]">
-                    {item.descriptionEn || "Delicious pizza with fresh ingredients."}
-                  </p>
                   
                   <div className="pt-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                       <Button 
