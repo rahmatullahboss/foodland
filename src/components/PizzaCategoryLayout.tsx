@@ -65,26 +65,64 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
     <div className="min-h-screen bg-[#1a102e] text-white selection:bg-[#c6a87c] selection:text-black">
       {/* Shared Header */}
       <Header />
-      {/* 1. Hero Section (Simplified) */}
-      <section className="relative px-6 py-16 md:py-24 pt-24 overflow-hidden">
-        <div className="container mx-auto text-center">
+      {/* 1. Hero Section (Arched) */}
+      <section className="relative px-6 py-20 md:py-32 pt-24 overflow-hidden">
+        <div className="container mx-auto">
           {/* Main Title Area */}
-          <div className="relative z-10">
-            <span className="text-[#c6a87c] font-sans tracking-[0.3em] text-sm uppercase mb-4 block">
-              Our Specialty
-            </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-none tracking-tight">
-              LOVE OF{" "}
-              <span className="italic text-[#c6a87c]">PIZZA</span>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 relative z-10">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-[#c6a87c] leading-none tracking-tight">
+              LOVE OF <br className="hidden md:block" />
+              <span className="italic text-white">PIZZA</span>
             </h1>
-            <p className="text-white/60 mt-6 max-w-xl mx-auto font-sans text-lg">
-              Handcrafted with fresh ingredients and baked to perfection
-            </p>
+            
+            <div className="mt-8 md:mt-0 max-w-xs text-right hidden md:block">
+              <p className="text-white/70 font-sans tracking-widest text-sm mb-4">
+                SCROLL TO DISCOVER
+              </p>
+              <div className="w-full h-[1px] bg-white/20"></div>
+            </div>
+          </div>
+
+          {/* Arched Images Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            {/* Arch 1 */}
+            <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 group">
+              <Image 
+                src="/images/pizza_margherita_real.png"
+                alt="Pizza Lifestyle"
+                fill
+                className="object-cover animate-ken-burns"
+              />
+               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+
+             {/* Arch 2 (Center - slightly taller/different) */}
+             <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 mt-0 md:-mt-12 group">
+              <Image 
+                src="/images/pizza_pepperoni_real.png"
+                alt="Pizza Preparation"
+                 fill
+                className="object-cover animate-ken-burns"
+                style={{ animationDelay: "-5s" }}
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+
+             {/* Arch 3 */}
+             <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 group">
+              <Image 
+                src="/images/pizza_bbq_chicken_real.png"
+                alt="Pizza Dining"
+                 fill
+                className="object-cover animate-ken-burns"
+                style={{ animationDelay: "-10s" }}
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
           </div>
           
           {/* Background Decor */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] border border-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] border border-white/5 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] border border-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
         </div>
       </section>
 
