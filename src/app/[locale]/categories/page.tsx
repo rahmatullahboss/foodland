@@ -7,7 +7,8 @@ import Header from "@/components/Header";
 
 const categories = [
   { id: "cat_pizza", name: "Pizza", image: "/images/category_pizza_1767458191066.png", description: "Authentic Italian pizzas with premium toppings" },
-  { id: "cat_burger", name: "Burger & Sandwich", image: "/images/category_burger_1767458206673.png", description: "Gourmet burgers and delicious sandwiches" },
+  { id: "cat_burger", name: "Burger & Sub Burger", image: "/images/category_burger_1767458206673.png", description: "Gourmet burgers and delicious sub burgers" },
+  { id: "cat_sandwich_momo", name: "Sandwich & Momo", image: "/images/category_sandwich_momo.png", description: "Tasty sandwiches and steamed momos" },
   { id: "cat_pasta", name: "Pasta & Chowmein", image: "/images/category_pasta_1767458227513.png", description: "Creamy pastas and flavorful noodles" },
   { id: "cat_rice", name: "Rice & Biryani", image: "/images/category_rice_1767458244434.png", description: "Aromatic biryanis and fried rice specialties" },
   { id: "cat_setmenu", name: "Set Menu", image: "/images/category_setmenu_1767458264895.png", description: "Complete meal packages for the perfect dining experience" },
