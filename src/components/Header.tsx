@@ -27,7 +27,7 @@ const Header: React.FC = () => {
       </div>
 
       {/* Center Logo */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+      <div className="absolute left-1/2 top-6 -translate-x-1/2 text-center">
         <Link href="/en" className="text-2xl font-bold font-serif text-white tracking-wider hover:text-primary transition-colors">
           <span className="italic">Food</span>land
         </Link>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import Header from "@/components/Header";
 
 // Category data with generated images
 
@@ -21,8 +22,11 @@ const categories = [
 export default function CategoriesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-950 via-[#0d0a15] to-neutral-950">
+      {/* Shared Header */}
+      <Header />
+      
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-24 pt-32 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-600/5 rounded-full blur-[100px] pointer-events-none" />

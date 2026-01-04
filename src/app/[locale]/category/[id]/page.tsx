@@ -13,6 +13,7 @@ import PizzaCategoryLayout from "@/components/PizzaCategoryLayout";
 import JuiceCategoryLayout from "@/components/JuiceCategoryLayout";
 import SetMenuCategoryLayout from "@/components/SetMenuCategoryLayout";
 import BurgerCategoryLayout from "@/components/BurgerCategoryLayout";
+import Header from "@/components/Header";
 
 
 
@@ -93,7 +94,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div className="min-h-screen bg-background pb-20">
-      <div className="container mx-auto px-4 py-8">
+      {/* Shared Header */}
+      <Header />
+      
+      <div className="container mx-auto px-4 py-8 pt-24">
         <div className="mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">{category.name}</h1>
             {category.description && (
