@@ -27,17 +27,17 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.03, // Reduced from 0.1 for faster appearance
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
+    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] as const },
   },
 };
 
@@ -51,13 +51,7 @@ export default function CategoriesSection() {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <span className="text-primary tracking-[0.3em] text-sm uppercase font-sans">Explore Our Menu</span>
           <h2 className="text-4xl md:text-6xl font-serif text-white mt-4">
             Food <span className="italic text-primary">Categories</span>
@@ -65,7 +59,7 @@ export default function CategoriesSection() {
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto font-display text-lg">
             From sizzling pizzas to refreshing drinks, discover a world of flavors crafted with passion
           </p>
-        </motion.div>
+        </div>
 
         {/* Categories Grid - All items same size */}
         <motion.div 
@@ -85,9 +79,11 @@ export default function CategoriesSection() {
                     alt={category.name}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                    priority={index < 5}
-                    loading={index < 5 ? "eager" : "lazy"}
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    priority={index < 6}
+                    loading={index < 6 ? "eager" : "lazy"}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQMDBAMBAAAAAAAAAAAAAQIDEQAEBQYSITEHE0FR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAaEQACAgMAAAAAAAAAAAAAAAABAgADESEx/9oADAMBEQCEERAA"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   
                   {/* Gradient Overlay */}
@@ -112,13 +108,7 @@ export default function CategoriesSection() {
         </motion.div>
 
         {/* View All Button */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <Button 
             asChild
             size="lg" 
@@ -129,7 +119,7 @@ export default function CategoriesSection() {
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
