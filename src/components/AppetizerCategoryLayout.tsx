@@ -68,7 +68,7 @@ const AppetizerItemCard = ({ item, index }: { item: MenuItem; index: number }) =
 
       <Button 
           variant="outline"
-          className="rounded-full border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black px-8 uppercase font-bold tracking-wider transition-all"
+          className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black rounded-none uppercase tracking-widest text-xs h-10 px-8"
       >
         Add to Cart
       </Button>

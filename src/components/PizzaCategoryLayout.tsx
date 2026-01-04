@@ -62,7 +62,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#1a102e] text-white selection:bg-[#c6a87c] selection:text-black">
+    <div className="min-h-screen bg-[#1a102e] text-white selection:bg-yellow-500 selection:text-black">
       {/* Shared Header */}
       <Header />
       {/* 1. Hero Section (Arched) */}
@@ -70,7 +70,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
         <div className="container mx-auto">
           {/* Main Title Area */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 relative z-10">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-[#c6a87c] leading-none tracking-tight">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-yellow-500 leading-none tracking-tight">
               LOVE OF <br className="hidden md:block" />
               <span className="italic text-white">PIZZA</span>
             </h1>
@@ -134,7 +134,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
 
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <span className="text-[#c6a87c] font-sans tracking-[0.2em] text-sm uppercase">Our Menu</span>
+            <span className="text-yellow-500 font-sans tracking-[0.2em] text-sm uppercase">Our Menu</span>
             <h2 className="text-4xl md:text-5xl font-serif text-white mt-4 italic">Choose Your Flavor</h2>
           </div>
 
@@ -146,7 +146,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
                 {/* Image Container - Floating Circle */}
                 <div className="relative w-64 h-64 mb-8">
                     {/* Glowing effect behind */}
-                    <div className="absolute inset-0 bg-[#c6a87c]/20 blur-[50px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-700"></div>
+                    <div className="absolute inset-0 bg-yellow-500/20 blur-[50px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-700"></div>
                     
                     <div className="relative w-full h-full animate-float group-hover:scale-110 transition-transform duration-500">
                         <Image
@@ -157,7 +157,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
                         />
                     </div>
                      <div className="absolute -top-4 -right-4">
-                        <Badge className="bg-[#c6a87c] text-black hover:bg-[#d4b991] border-none text-lg px-3 py-1 font-serif rounded-full whitespace-nowrap">
+                        <Badge className="bg-yellow-500 text-black hover:bg-yellow-400 border-none text-lg px-3 py-1 font-serif rounded-full whitespace-nowrap">
                             {isFrom && <span className="text-[10px] uppercase tracking-wider mr-1 opacity-70">From</span>}
                             {price}<span className="text-xs align-top ml-0.5">৳</span>
                         </Badge>
@@ -166,7 +166,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
 
                 {/* Content */}
                 <div className="space-y-4 z-10 w-full px-4">
-                  <h3 className="text-2xl font-serif text-white uppercase tracking-wide group-hover:text-[#c6a87c] transition-colors duration-300">
+                  <h3 className="text-2xl font-serif text-white uppercase tracking-wide group-hover:text-yellow-500 transition-colors duration-300">
                     {item.nameEn}
                   </h3>
                   
@@ -174,7 +174,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
                       <Button 
                         onClick={() => handleAddToCartClick(item)}
                         variant="outline" 
-                        className="border-[#c6a87c] text-[#c6a87c] hover:bg-[#c6a87c] hover:text-black rounded-none uppercase tracking-widest text-xs h-10 px-8"
+                        className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black rounded-none uppercase tracking-widest text-xs h-10 px-8"
                       >
                           Add to Cart
                       </Button>
