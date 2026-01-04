@@ -14,6 +14,7 @@ import JuiceCategoryLayout from "@/components/JuiceCategoryLayout";
 import SetMenuCategoryLayout from "@/components/SetMenuCategoryLayout";
 import BurgerCategoryLayout from "@/components/BurgerCategoryLayout";
 import SandwichMomoCategoryLayout from "@/components/SandwichMomoCategoryLayout";
+import AppetizerCategoryLayout from "@/components/AppetizerCategoryLayout";
 import Header from "@/components/Header";
 
 
@@ -96,6 +97,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   // Specialized Layout for Sandwich & Momo
   if (id === 'cat_sandwich_momo') {
     return <SandwichMomoCategoryLayout categoryName={category.name} items={items as unknown as any[]} locale={locale} />;
+  }
+
+  // Specialized Layout for Appetizer
+  if (id === 'cat_appetizer') {
+    return <AppetizerCategoryLayout categoryName={category.name} items={items as unknown as any[]} />;
   }
 
   return (

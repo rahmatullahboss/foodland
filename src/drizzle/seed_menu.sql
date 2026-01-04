@@ -88,10 +88,18 @@ INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, sl
 ('momo_3', 'Prawn Momo (6 pcs)', 'প্রন মোমো (৬ পিস)', '', '', 'prawn-momo', 450, 'cat_sandwich_momo', '/images/sandwich_momo/momo_prawn.png', 1),
 ('momo_4', 'Vegetable Momo (6 pcs)', 'ভেজিটেবল মোমো (৬ পিস)', '', '', 'vegetable-momo', 280, 'cat_sandwich_momo', '/images/sandwich_momo/momo_vegetable.png', 1);
 
--- Appetizers & Soup (Image: 605687573...jpg, 605157204...jpg)
+-- Appetizers & Fry (10 Items)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('app_1', 'French Fry', 'ফ্রেঞ্চ ফ্রাই', '', '', 'french-fry', 200, 'cat_appetizer', '/images/605687573_851589417639957_8185724907741742848_n.jpg', 1),
-('app_2', 'Chicken Nachos', 'চিকেন নাচোস', '', '', 'chicken-nachos', 300, 'cat_appetizer', '/images/605687573_851589417639957_8185724907741742848_n.jpg', 1),
+('app_1', 'Regular Wonthon (8 pcs)', 'রেগুলার অনথন (৮ পিস)', 'Crispy fried wonthons filled with savory chicken.', 'মচমচে ফ্রাইড অনথন মজাদার চিকেন পুরে ভরা।', 'regular-wonthon', 260, 'cat_appetizer', '/images/appetizers/wonthon_regular.png', 1),
+('app_2', 'Special Wonthon (8 pcs)', 'স্পেশাল অনথন (৮ পিস)', 'Special chef crafted wonthons with extra filling.', 'স্পেশাল শেফ ক্রাফটেড অনথন অতিরিক্ত পুর সহ।', 'special-wonthon', 350, 'cat_appetizer', '/images/appetizers/wonthon_special.png', 1),
+('app_3', 'French Fry', 'ফ্রেঞ্চ ফ্রাই', 'Classic crispy salted french fries.', 'ক্লাসিক মচমচে সল্টেড ফ্রেঞ্চ ফ্রাই।', 'french-fry', 200, 'cat_appetizer', '/images/appetizers/french_fry.png', 1),
+('app_4', 'Potato Wedges (12 pcs)', 'পটেটো ওয়েজেস (১২ পিস)', 'Seasoned potato wedges fried to perfection.', 'সিজনড পটেটো ওয়েজেস পারফেক্টলি ফ্রাইড।', 'potato-wedges', 240, 'cat_appetizer', '/images/appetizers/potato_wedges.png', 1),
+('app_5', 'Spicy Masala French Fry', 'স্পাইসি মাসালা ফ্রেঞ্চ ফ্রাই', 'French fries tossed in spicy masala mix.', 'স্পাইসি মাসালা মিক্স করা ফ্রেঞ্চ ফ্রাই।', 'spicy-masala-french-fry', 250, 'cat_appetizer', '/images/appetizers/french_fry_masala.png', 1),
+('app_6', 'Chicken Nachos', 'চিকেন নাচোস', 'Crunchy nachos topped with cheesy chicken sauce.', 'ক্রাঞ্চি নাচোস চিজি চিকেন সস সহ।', 'chicken-nachos', 300, 'cat_appetizer', '/images/appetizers/chicken_nachos.png', 1),
+('app_7', 'Chicken Tenders (6 pcs)', 'চিকেন টেন্ডারস (৬ পিস)', 'Breaded and fried chicken tenderloins.', 'ব্রেডেড এবং ফ্রাইড চিকেন টেন্ডারলইন।', 'chicken-tenders', 350, 'cat_appetizer', '/images/appetizers/chicken_tenders.png', 1),
+('app_8', 'Chicken Meatbox', 'চিকেন মিটবক্স', 'Loaded box of fries, chicken and sauces.', 'লোডেড বক্স অফ ফ্রাইস, চিকেন এবং সসেস।', 'chicken-meatbox', 350, 'cat_appetizer', '/images/appetizers/meatbox_chicken.png', 1),
+('app_9', 'Special Chicken Meatbox', 'স্পেশাল চিকেন মিটবক্স', 'Extra loaded meatbox with sausages and cheese.', 'এক্সট্রা লোডেড মিটবক্স সসেজ এবং চিজ সহ।', 'special-chicken-meatbox', 450, 'cat_appetizer', '/images/appetizers/meatbox_special.png', 1),
+('app_10', 'Stick Chicken (6 pcs)', 'স্টিক চিকেন (৬ পিস)', 'Grilled chicken skewers on a stick.', 'গ্রিলড চিকেন স্কিউয়ার স্টিক এ।', 'stick-chicken', 280, 'cat_appetizer', '/images/appetizers/stick_chicken.png', 1),
 ('soup_1', 'Thai Thick Soup', 'থাই থিক স্যুপ', 'Ratio: 1:2-320, 1:3-470', 'অনুপাত: ১:২-৩২০, ১:৩-৪৭০', 'thai-thick-soup', 320, 'cat_soup', '/images/605157204_851589187639980_2832333856076652885_n.jpg', 1),
 ('soup_2', 'Special Corn Soup', 'স্পেশাল কর্ন স্যুপ', 'Ratio: 1:2-290, 1:3-350', 'অনুপাত: ১:২-২৯০, ১:৩-৩৫০', 'corn-soup', 290, 'cat_soup', '/images/605157204_851589187639980_2832333856076652885_n.jpg', 1);
 

@@ -11,14 +11,14 @@
     "preview": "wrangler dev",
     "deploy": "npm run build:cf && wrangler deploy",
     "db:generate": "drizzle-kit generate",
-    "db:migrate:local": "wrangler d1 migrations apply foodland-db --local",
-    "db:migrate:remote": "wrangler d1 migrations apply foodland-db --remote",
-    "db:seed:local": "wrangler d1 execute foodland-db --local --file=./drizzle/seed.sql",
-    "db:seed:remote": "wrangler d1 execute foodland-db --remote --file=./drizzle/seed.sql",
+    "db:migrate:local": "wrangler d1 migrations apply foodland-db-prod --local",
+    "db:migrate:remote": "wrangler d1 migrations apply foodland-db-prod --remote",
+    "db:seed:local": "wrangler d1 execute foodland-db-prod --local --file=./drizzle/seed.sql",
+    "db:seed:remote": "wrangler d1 execute foodland-db-prod --remote --file=./drizzle/seed.sql",
     "db:studio:local": "drizzle-kit studio",
     "db:push": "drizzle-kit push",
     "cf:login": "wrangler login",
-    "cf:d1:create": "wrangler d1 create foodland-db"
+    "cf:d1:create": "wrangler d1 create foodland-db-prod"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.5",
