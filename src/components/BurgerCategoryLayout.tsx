@@ -149,7 +149,7 @@ export default function BurgerCategoryLayout({
                 </Badge>
                 <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter mb-6 shadow-xl">
                     <span className="text-white">Burger</span>
-                    <span className="text-yellow-500"> & Sub Burger</span>
+                    <span className="text-white"> & Sub </span><span className="text-yellow-500">Burger</span>
                 </h1>
                 {description && (
                     <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-light">
