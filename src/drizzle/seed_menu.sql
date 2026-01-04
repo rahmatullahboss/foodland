@@ -76,17 +76,17 @@ INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, sl
 -- Sandwich & Momo category
 -- Sandwiches (স্যান্ডউইচ)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('sand_1', 'Chicken Cheese Sub Sandwich', 'চিকেন চিজ সাব স্যান্ডউইচ', '', '', 'chicken-cheese-sub-sandwich', 360, 'cat_sandwich_momo', '/images/category_sandwich.png', 1),
-('sand_2', 'Foodland Special Sub Sandwich', 'ফুডল্যান্ড স্পেশাল সাব স্যান্ডউইচ', '', '', 'foodland-special-sub-sandwich', 480, 'cat_sandwich_momo', '/images/category_sandwich.png', 1),
-('sand_3', 'Chicken Club Sandwich', 'চিকেন ক্লাব স্যান্ডউইচ', '', '', 'chicken-club-sandwich', 300, 'cat_sandwich_momo', '/images/category_sandwich.png', 1),
-('sand_4', 'BBQ Sub Sandwich', 'বি.বি.কিউ সাব স্যান্ডউইচ', '', '', 'bbq-sub-sandwich', 390, 'cat_sandwich_momo', '/images/category_sandwich.png', 1);
+('sand_1', 'Chicken Cheese Sub Sandwich', 'চিকেন চিজ সাব স্যান্ডউইচ', '', '', 'chicken-cheese-sub-sandwich', 360, 'cat_sandwich_momo', '/images/sandwich_momo/sandwich_chicken_cheese.png', 1),
+('sand_2', 'Foodland Special Sub Sandwich', 'ফুডল্যান্ড স্পেশাল সাব স্যান্ডউইচ', '', '', 'foodland-special-sub-sandwich', 480, 'cat_sandwich_momo', '/images/sandwich_momo/sandwich_foodland_special.png', 1),
+('sand_3', 'Chicken Club Sandwich', 'চিকেন ক্লাব স্যান্ডউইচ', '', '', 'chicken-club-sandwich', 300, 'cat_sandwich_momo', '/images/sandwich_momo/sandwich_chicken_club.png', 1),
+('sand_4', 'BBQ Sub Sandwich', 'বি.বি.কিউ সাব স্যান্ডউইচ', '', '', 'bbq-sub-sandwich', 390, 'cat_sandwich_momo', '/images/sandwich_momo/sandwich_bbq_sub.png', 1);
 
 -- Momos (মোমো)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('momo_1', 'Chicken Steam Momo (6 pcs)', 'চিকেন স্টিম মোমো (৬ পিস)', '', '', 'chicken-steam-momo', 320, 'cat_sandwich_momo', '/images/category_momo.png', 1),
-('momo_2', 'Chicken Fry Momo (6 pcs)', 'চিকেন ফ্রাই মোমো (৬ পিস)', '', '', 'chicken-fry-momo', 350, 'cat_sandwich_momo', '/images/category_momo.png', 1),
-('momo_3', 'Plain Momo (6 pcs)', 'প্লেন মোমো (৬ পিস)', '', '', 'plain-momo', 450, 'cat_sandwich_momo', '/images/category_momo.png', 1),
-('momo_4', 'Vegetable Momo (6 pcs)', 'ভেজিটেবল মোমো (৬ পিস)', '', '', 'vegetable-momo', 280, 'cat_sandwich_momo', '/images/category_momo.png', 1);
+('momo_1', 'Chicken Steam Momo (6 pcs)', 'চিকেন স্টিম মোমো (৬ পিস)', '', '', 'chicken-steam-momo', 320, 'cat_sandwich_momo', '/images/sandwich_momo/momo_chicken_steam.png', 1),
+('momo_2', 'Chicken Fry Momo (6 pcs)', 'চিকেন ফ্রাই মোমো (৬ পিস)', '', '', 'chicken-fry-momo', 350, 'cat_sandwich_momo', '/images/sandwich_momo/momo_chicken_fry.png', 1),
+('momo_3', 'Prawn Momo (6 pcs)', 'প্রন মোমো (৬ পিস)', '', '', 'prawn-momo', 450, 'cat_sandwich_momo', '/images/sandwich_momo/momo_prawn.png', 1),
+('momo_4', 'Vegetable Momo (6 pcs)', 'ভেজিটেবল মোমো (৬ পিস)', '', '', 'vegetable-momo', 280, 'cat_sandwich_momo', '/images/sandwich_momo/momo_vegetable.png', 1);
 
 -- Appetizers & Soup (Image: 605687573...jpg, 605157204...jpg)
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
