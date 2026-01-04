@@ -1,4 +1,4 @@
-import Link from 'next/link';
+// import Link from 'next/link'; // Unused
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -40,35 +40,6 @@ export default function Home() {
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
             <HeroSection />
-
-            {/* About Section */}
-            <section className="py-24 bg-neutral-950 text-white">
-                <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6 animate-in slide-in-from-left duration-700">
-                        <h2 className="text-4xl md:text-5xl font-serif text-primary">The Chef&apos;s Story</h2>
-                        <p className="text-lg text-gray-400 leading-relaxed font-display">
-                            Born from a passion for culinary excellence, Foodland brings together the finest ingredients
-                            and traditional techniques. Our chefs craft every dish with precision, turning simple meals
-                            into unforgettable memories.
-                        </p>
-                        <p className="text-lg text-gray-400 leading-relaxed font-display">
-                            Whether it&apos;s a romantic dinner or a family gathering, our ambiance sets the stage for
-                            magical moments.
-                        </p>
-                        <Button variant="link" className="text-primary p-0 text-lg">
-                            Read More &rarr;
-                        </Button>
-                    </div>
-                    <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-in slide-in-from-right duration-700">
-                        <Image
-                            src="/images/606441375_851589284306637_7172378830321824833_n.jpg"
-                            alt="Chef at work"
-                            fill
-                            className="object-cover hover:scale-105 transition-transform duration-700"
-                        />
-                    </div>
-                </div>
-            </section>
 
             {/* Categories Section */}
             <CategoriesSection />

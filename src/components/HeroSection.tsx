@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image'; // Unused
 import Link from 'next/link';
 import ClientImage from "./ClientImage";
 import { Button } from '@/components/ui/button';
@@ -83,10 +83,10 @@ const HeroSection = () => {
             <nav className="relative z-50 flex items-center justify-between px-6 py-6 md:px-12">
                 {/* Left Links */}
                 <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-white/90">
-                    <Link href="/menu" className="hover:text-primary transition-colors">Category</Link>
-                    <Link href="/offer" className="hover:text-primary transition-colors">Offer</Link>
-                    <Link href="/recipes" className="hover:text-primary transition-colors">Recipes</Link>
-                    <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+                    <Link href="/en/categories" className="hover:text-primary transition-colors">Category</Link>
+                    <Link href="/en/categories" className="hover:text-primary transition-colors">Offer</Link>
+                    <Link href="/en/categories" className="hover:text-primary transition-colors">Recipes</Link>
+                    <Link href="/en/contact" className="hover:text-primary transition-colors">Contact</Link>
                 </div>
 
                 {/* Mobile Menu Placeholder (Hamburger would go here) */}
@@ -137,7 +137,7 @@ const HeroSection = () => {
                 </div>
 
                 <div className="mt-12 animate-in slide-in-from-bottom duration-1000 delay-300">
-                    <Link href="/menu">
+                    <Link href="/en/categories">
                         <Button 
                             size="lg" 
                             className="bg-red-600 hover:bg-red-700 text-white rounded-full px-10 py-6 text-sm font-semibold tracking-widest shadow-xl hover:shadow-red-600/20 transition-all transform hover:scale-105"

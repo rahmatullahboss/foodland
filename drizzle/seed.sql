@@ -14,6 +14,17 @@ INSERT OR IGNORE INTO menu_items (id, name_en, slug, price, category_id, descrip
 ('pizza_7', 'Four Cheese', 'four-cheese', 900, 'cat_pizza', 'Blend of Mozzarella, Cheddar, Parmesan, and Gorgonzola.', '/images/pizza_margherita_real.png', 1),
 ('pizza_8', 'Hawaiian', 'hawaiian', 950, 'cat_pizza', 'Classic ham and pineapple combination.', '/images/pizza_veggie_real.png', 1);
 
+-- Menu Items (Burgers)
+INSERT OR IGNORE INTO menu_items (id, name_en, slug, price, category_id, description_en, featured_image, is_active) VALUES 
+('burger_1', 'Classic Beef Burger', 'classic-beef-burger', 450, 'cat_burger', 'Juice beef patty with fresh lettuce, tomato, and cheese on a sesame seed bun.', '/images/burgers/burger_classic.jpg', 1),
+('burger_2', 'Crispy Chicken Burger', 'crispy-chicken-burger', 380, 'cat_burger', 'Golden fried chicken breast with creamy mayonnaise and pickles.', '/images/burgers/burger_chicken.jpg', 1),
+('burger_3', 'BBQ Bacon Burger', 'bbq-bacon-burger', 550, 'cat_burger', 'Beef patty topped with crispy bacon, onion rings, and smoky BBQ sauce.', '/images/burgers/burger_bbq.jpg', 1),
+('burger_4', 'Mushroom Swiss Burger', 'mushroom-swiss-burger', 520, 'cat_burger', 'Melted Swiss cheese and sautéed mushrooms on a juicy patty.', '/images/burgers/burger_mushroom.jpg', 1),
+('burger_5', 'Spicy Jalapeño Burger', 'spicy-jalapeno-burger', 490, 'cat_burger', 'Spicy beef patty with fresh jalapeños and pepper jack cheese.', '/images/burgers/burger_jalapeno.jpg', 1),
+('burger_6', 'Double Cheeseburger', 'double-cheeseburger', 650, 'cat_burger', 'Double beef patties, double cheese, double the flavor.', '/images/burgers/burger_double.jpg', 1),
+('burger_7', 'Veggie Bean Burger', 'veggie-bean-burger', 350, 'cat_burger', 'Wholesome black bean patty with fresh avocado and salsa.', '/images/burgers/burger_veggie.jpg', 1),
+('burger_8', 'Foodland Special Tower', 'foodland-special-tower', 800, 'cat_burger', 'Our signature tower burger with double patty, egg, bacon, and secret sauce.', '/images/burgers/burger_special.jpg', 1);
+
 -- Menu Item Variants (Sizes)
 -- Pizza 1 (Margherita)
 INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
@@ -62,3 +73,19 @@ INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES
 ('var_p8_s', 'pizza_8', 'Small (8")', 650),
 ('var_p8_m', 'pizza_8', 'Medium (12")', 950),
 ('var_p8_l', 'pizza_8', 'Large (16")', 1350);
+
+-- Burger Variants (Updates)
+-- Classic
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_b1_s', 'burger_1', 'Single', 450),
+('var_b1_d', 'burger_1', 'Double Patty', 600);
+
+-- Chicken
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_b2_s', 'burger_2', 'Regular', 380),
+('var_b2_l', 'burger_2', 'Large', 480);
+
+-- BBQ
+INSERT OR IGNORE INTO menu_item_variants (id, menu_item_id, name, price) VALUES 
+('var_b3_s', 'burger_3', 'Regular', 550),
+('var_b3_d', 'burger_3', 'Double Meat', 750);

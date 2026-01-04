@@ -1,5 +1,6 @@
+
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import { notFound } from "next/navigation";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getDb } from "@/db";
 import { categories, menuItems } from "@/db/schema";
 import { eq } from "drizzle-orm";
@@ -11,6 +12,7 @@ import type { D1Database } from "@cloudflare/workers-types";
 import PizzaCategoryLayout from "@/components/PizzaCategoryLayout";
 import JuiceCategoryLayout from "@/components/JuiceCategoryLayout";
 import SetMenuCategoryLayout from "@/components/SetMenuCategoryLayout";
+import BurgerCategoryLayout from "@/components/BurgerCategoryLayout";
 
 
 
@@ -69,19 +71,24 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   });
 
 
-  // Specialized Layout for Pizza
+// Specialized Layout for Pizza
   if (id === 'cat_pizza') {
-      return <PizzaCategoryLayout categoryName={category.name} items={items as any} />;
+      return <PizzaCategoryLayout categoryName={category.name} items={items as unknown as any[]} />;
   }
 
-  // Specialized Layout for Juice/Sharbat (Drinks)
-  if (id === 'cat_drinks') {
-      return <JuiceCategoryLayout categoryName={category.name} items={items as any} description={category.description} />;
+  // Specialized Layout for Juice
+  if (id === 'cat_juice_and_sharbat') {
+    return <JuiceCategoryLayout categoryName={category.name} items={items as unknown as any[]} />;
   }
 
-  // Specialized Layout for Set Menu
-  if (id === 'cat_setmenu') {
-      return <SetMenuCategoryLayout categoryName={category.name} items={items as any} />;
+   // Specialized Layout for Set Menu
+   if (id === 'cat_setmenu') {
+    return <SetMenuCategoryLayout categoryName={category.name} items={items as unknown as any[]} />;
+  }
+
+  // Specialized Layout for Burger
+  if (id === 'cat_burger') {
+    return <BurgerCategoryLayout categoryName={category.name} items={items as unknown as any[]} />;
   }
 
   return (

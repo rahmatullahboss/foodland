@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import ProductVariantSelector from "./ProductVariantSelector";
+import Header from "./Header";
 
 interface MenuItemVariant {
   id: string;
@@ -28,7 +29,7 @@ interface PizzaCategoryLayoutProps {
 }
 
 const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
-  categoryName,
+  // categoryName, // Unused
   items,
 }) => {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
@@ -62,8 +63,10 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
 
   return (
     <div className="min-h-screen bg-[#1a102e] text-white selection:bg-[#c6a87c] selection:text-black">
+      {/* Shared Header */}
+      <Header />
       {/* 1. Hero Section (Arched) */}
-      <section className="relative px-6 py-20 md:py-32 overflow-hidden">
+      <section className="relative px-6 py-20 md:py-32 pt-24 overflow-hidden">
         <div className="container mx-auto">
           {/* Main Title Area */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 relative z-10">
@@ -85,34 +88,36 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
             {/* Arch 1 */}
             <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 group">
               <Image 
-                src="/images/hero_chili_cartoon.png" // Placeholder or lifestyle image
+                src="/images/pizza_margherita_real.png" // Cinematic placeholder
                 alt="Pizza Lifestyle"
                 fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover animate-ken-burns"
               />
-               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
 
              {/* Arch 2 (Center - slightly taller/different) */}
              <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 mt-0 md:-mt-12 group">
               <Image 
-                src="/images/hero_sushi_cartoon.png" // Using existing assets as placeholder for now
+                src="/images/pizza_pepperoni_real.png" // Cinematic placeholder
                 alt="Pizza Preparation"
                  fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover animate-ken-burns"
+                style={{ animationDelay: "-5s" }}
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
 
              {/* Arch 3 */}
              <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 group">
               <Image 
-                src="/images/hero_cucumber_cartoon.png" // Placeholder
+                src="/images/pizza_bbq_chicken_real.png" // Cinematic placeholder
                 alt="Pizza Dining"
                  fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover animate-ken-burns"
+                style={{ animationDelay: "-10s" }}
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
           </div>
           
@@ -187,6 +192,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
       {/* Variant Selector Dialog */}
       {selectedItem && (
         <ProductVariantSelector
+          key={selectedItem.id}
           isOpen={isSelectorOpen}
           onClose={() => setIsSelectorOpen(false)}
           productName={selectedItem.nameEn}

@@ -66,15 +66,15 @@ export default function CategoriesSection() {
           </p>
         </motion.div>
 
-        {/* Categories Grid */}
+        {/* Categories Grid - All items same size */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-8"
         >
-          {categories.slice(0, 6).map((category) => (
+          {categories.map((category) => (
             <motion.div key={category.id} variants={itemVariants}>
               <Link href={`/en/category/${category.id}`}>
                 <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer border border-white/5 hover:border-primary/30 transition-all duration-500 bg-[#111]">
@@ -94,45 +94,7 @@ export default function CategoriesSection() {
                   
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                    <h3 className="text-lg md:text-xl font-serif text-white group-hover:text-primary transition-colors duration-300">
-                      {category.name}
-                    </h3>
-                    <div className="mt-2 opacity-0 transform translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                      <span className="text-xs text-primary/80 uppercase tracking-widest">View Menu</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Second Row - Remaining Categories */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mt-6"
-        >
-          {categories.slice(6).map((category) => (
-            <motion.div key={category.id} variants={itemVariants}>
-              <Link href={`/en/category/${category.id}`}>
-                <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer border border-white/5 hover:border-primary/30 transition-all duration-500 bg-[#111]">
-                  {/* Background Image */}
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
-                  
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                    <h3 className="text-lg md:text-xl font-serif text-white group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-sm sm:text-base md:text-lg font-serif text-white group-hover:text-primary transition-colors duration-300 line-clamp-2">
                       {category.name}
                     </h3>
                     <div className="mt-2 opacity-0 transform translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">

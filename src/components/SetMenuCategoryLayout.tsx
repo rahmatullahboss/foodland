@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Header from "./Header";
 
 interface MenuItem {
   id: string;
@@ -25,8 +26,11 @@ const SetMenuCategoryLayout: React.FC<SetMenuCategoryLayoutProps> = ({
 }) => {
   return (
     <div className="min-h-screen bg-[#1a102e] text-white selection:bg-[#c6a87c] selection:text-black font-serif">
+      {/* Shared Header */}
+      <Header />
+      
       {/* 1. Hero Section */}
-      <section className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden">
+      <section className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden pt-16">
         <Image
           src="/images/set_menu_hero.png"
           alt="Set Menu Feast"

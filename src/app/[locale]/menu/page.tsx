@@ -50,7 +50,7 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {categoryList.map((category, index) => (
+                        {categoryList.map((category) => (
                             <Link href={`/category/${category.id}`} key={category.id} className="block group">
                                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 h-full relative group">
                                      {/* Image Container */}

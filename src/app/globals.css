@@ -135,6 +135,9 @@
   .animate-rotate-reverse {
     animation: rotate 25s linear infinite reverse;
   }
+  .animate-ken-burns {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+  }
 }
 
 @keyframes float {
@@ -155,5 +158,17 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.15) translate(-2%, -2%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
   }
 }

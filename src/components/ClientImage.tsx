@@ -1,7 +1,8 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
-import React, { useEffect, useRef, useState } from "react";
-import Image, { ImageProps } from "next/image";
+import React, { useEffect, useState } from "react";
+import { ImageProps } from "next/image";
 
 interface ClientImageProps extends Omit<ImageProps, "src"> {
   src: string;
@@ -14,7 +15,7 @@ const ClientImage: React.FC<ClientImageProps> = ({
   ...props
 }) => {
   const [processedSrc, setProcessedSrc] = useState<string | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  // const canvasRef = useRef<HTMLCanvasElement>(null); // Unused
 
   useEffect(() => {
     const img = new window.Image();

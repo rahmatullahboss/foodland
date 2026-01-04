@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -34,15 +34,9 @@ const ProductVariantSelector: React.FC<ProductVariantSelectorProps> = ({
   variants,
   onAddToCart,
 }) => {
-  const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
-
-  // set default selection
-  useEffect(() => {
-    if (isOpen && variants.length > 0 && !selectedVariantId) {
-       // Default to the first one (usually Small)
-      setSelectedVariantId(variants[0].id);
-    }
-  }, [isOpen, variants, selectedVariantId]);
+  const [selectedVariantId, setSelectedVariantId] = useState<string | null>(
+    variants.length > 0 ? variants[0].id : null
+  );
   
   const selectedVariant = variants.find(v => v.id === selectedVariantId);
 
@@ -54,7 +48,7 @@ const ProductVariantSelector: React.FC<ProductVariantSelectorProps> = ({
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+    <Dialog open={isOpen} onOpenChange={(open: boolean) => !open && onClose()}>
       <DialogContent className="bg-[#1a102e] border-white/10 text-white sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-2xl font-serif text-[#c6a87c]">{productName}</DialogTitle>

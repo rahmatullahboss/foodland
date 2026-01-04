@@ -1,0 +1,27 @@
+
+> dc-store@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.9
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.7s
+   Linting and checking validity of types ...
+
+Failed to compile.
+
+./src/app/[locale]/category/[id]/page.tsx
+74:91  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+79:89  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+84:91  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+89:90  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/[locale]/menu/page.tsx
+53:54  Warning: 'index' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/[locale]/page.tsx
+1:8  Warning: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

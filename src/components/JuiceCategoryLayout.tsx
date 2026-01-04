@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
+import Header from "./Header";
 
 interface JuiceCategoryLayoutProps {
   categoryName: string;
@@ -20,12 +21,15 @@ export default function JuiceCategoryLayout({
 }: JuiceCategoryLayoutProps) {
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-white font-serif relative overflow-hidden">
+      {/* Shared Header */}
+      <Header />
+      
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-purple-900/20 to-transparent pointer-events-none" />
       <div className="absolute -top-20 -right-20 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-40 -left-20 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="container mx-auto px-4 py-16 pt-24 relative z-10">
         <header className="mb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
