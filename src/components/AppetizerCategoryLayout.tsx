@@ -59,12 +59,9 @@ const AppetizerItemCard = ({ item, index }: { item: MenuItem; index: number }) =
         </div>
       </div>
 
-      <h3 className="text-xl md:text-2xl font-bold text-yellow-500 mb-2 uppercase tracking-wide">
+      <h3 className="text-xl md:text-2xl font-bold text-yellow-500 mb-4 uppercase tracking-wide">
         {item.nameEn}
       </h3>
-       <p className="text-gray-400 text-sm md:text-base mb-4 line-clamp-2 max-w-xs h-10">
-          {item.descriptionEn}
-       </p>
 
       <Button 
           variant="outline"
