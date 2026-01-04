@@ -57,11 +57,23 @@ INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, sl
 ('chow_1', 'Foodland Special Chowmein', 'ফুডল্যান্ড স্পেশাল চাওমিন', 'Ratio: 1:2-440, 1:3-640', 'অনুপাত: ১:২-৪৪০, ১:৩-৬৪০', 'special-chowmein', 440, 'cat_pasta', '/images/606441375_851589284306637_7172378830321824833_n.jpg', 1),
 ('chow_2', 'Chicken Chowmein', 'চিকেন চাওমিন', 'Ratio: 1:2-360, 1:3-500', 'অনুপাত: ১:২-৩৬০, ১:৩-৫০০', 'chicken-chowmein', 360, 'cat_pasta', '/images/606441375_851589284306637_7172378830321824833_n.jpg', 1);
 
--- Burger, Sandwich & Momo (Image: 608536953...jpg, 606858522...jpg)
+-- Burger Menu (বার্গার মেনু) - 7 items from original menu
 INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
-('burg_1', 'Chicken Burger', 'চিকেন বার্গার', '', '', 'chicken-burger', 250, 'cat_burger', '/images/608536953_851589204306645_4473889673049446755_n.jpg', 1),
-('burg_2', 'Super Chicken Burger', 'সুপার চিকেন বার্গার', '', '', 'super-chicken-burger', 440, 'cat_burger', '/images/608536953_851589204306645_4473889673049446755_n.jpg', 1),
-('sub_1', 'Chicken Cheese Sub', 'চিকেন চিজ সাব', '', '', 'chicken-cheese-sub', 360, 'cat_burger', '/images/606858522_851589207639978_765950520261064099_n.jpg', 1),
+('burg_1', 'Chicken Burger', 'চিকেন বার্গার', '', '', 'chicken-burger', 250, 'cat_burger', '/images/burgers/burger_chicken.png', 1),
+('burg_2', 'Chicken Cheese Burger', 'চিকেন চিজ বার্গার', '', '', 'chicken-cheese-burger', 300, 'cat_burger', '/images/burgers/burger_chicken_cheese.png', 1),
+('burg_3', 'Super Chicken Burger', 'সুপার চিকেন বার্গার', '', '', 'super-chicken-burger', 440, 'cat_burger', '/images/burgers/burger_super_chicken.png', 1),
+('burg_4', 'Chicken Double Blast Burger', 'চিকেন ডাবল ব্লাস্ট বার্গার', '', '', 'chicken-double-blast-burger', 480, 'cat_burger', '/images/burgers/burger_double_blast.png', 1),
+('burg_5', 'BBQ Burger', 'বি.বি.কিউ বার্গার', '', '', 'bbq-burger', 350, 'cat_burger', '/images/burgers/burger_bbq.png', 1),
+('burg_6', 'Naga Cheese Burger', 'নাগা চিজ বার্গার', '', '', 'naga-cheese-burger', 330, 'cat_burger', '/images/burgers/burger_naga_cheese.png', 1),
+('burg_7', 'Crispy Chicken Cheese Burger', 'ক্রিসপি চিকেন চিজ বার্গার', '', '', 'crispy-chicken-cheese-burger', 380, 'cat_burger', '/images/burgers/burger_crispy_chicken_cheese.png', 1);
+
+-- Sub Burger (সাব বার্গার) - 2 items from original menu
+INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
+('sub_1', 'Chicken Cheese Sub', 'চিকেন চিজ সাব বার্গার', '', '', 'chicken-cheese-sub', 380, 'cat_burger', '/images/burgers/sub_chicken_cheese.png', 1),
+('sub_2', 'BBQ Chicken Sub', 'বি.বি.কিউ চিকেন সাব বার্গার', '', '', 'bbq-chicken-sub', 400, 'cat_burger', '/images/burgers/sub_bbq_chicken.png', 1);
+
+-- Momo (appetizer category)
+INSERT INTO menu_items (id, name_en, name_bn, description_en, description_bn, slug, price, category_id, featured_image, is_active) VALUES
 ('momo_1', 'Chicken Steam Momo', 'চিকেন স্টিম মোমো', '6 pcs', '৬ পিস', 'chicken-steam-momo', 320, 'cat_appetizer', '/images/606858522_851589207639978_765950520261064099_n.jpg', 1),
 ('momo_2', 'Chicken Fry Momo', 'চিকেন ফ্রাই মোমো', '6 pcs', '৬ পিস', 'chicken-fry-momo', 350, 'cat_appetizer', '/images/606858522_851589207639978_765950520261064099_n.jpg', 1);
 
