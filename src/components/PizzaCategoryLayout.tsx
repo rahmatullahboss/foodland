@@ -62,7 +62,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#1a102e] text-white selection:bg-yellow-500 selection:text-black">
+    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-yellow-500 selection:text-black">
       {/* Shared Header */}
       <Header />
       {/* 1. Hero Section (Arched) */}
@@ -127,7 +127,7 @@ const PizzaCategoryLayout: React.FC<PizzaCategoryLayoutProps> = ({
       </section>
 
       {/* 2. Menu Grid */}
-      <section className="py-20 px-6 bg-[#150d25] relative">
+      <section className="py-20 px-6 bg-[#0a0a0a] relative">
          {/* Decoration Lines */}
          <div className="absolute top-0 left-10 bottom-0 w-[1px] bg-white/5 hidden md:block"></div>
          <div className="absolute top-0 right-10 bottom-0 w-[1px] bg-white/5 hidden md:block"></div>
