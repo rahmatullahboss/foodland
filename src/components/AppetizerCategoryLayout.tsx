@@ -77,39 +77,86 @@ const AppetizerItemCard = ({ item, index }: { item: MenuItem; index: number }) =
 };
 
 export default function AppetizerCategoryLayout({
-  categoryName,
   items,
-  description,
 }: AppetizerCategoryLayoutProps) {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-yellow-500 selection:text-black">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 flex items-center justify-center overflow-hidden">
-         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
-         
-         <div className="container relative z-10 text-center px-4">
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-            >
-                <h1 className="text-5xl md:text-7xl font-black text-yellow-500 mb-4 uppercase drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]">
-                    {categoryName}
-                </h1>
-                <div className="w-24 h-1 bg-yellow-500 mx-auto rounded-full mb-6" />
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
-                   {description || "Start your meal with our crispy, savory, and delicious selections."}
-                </p>
-            </motion.div>
-         </div>
+      {/* Hero Section (Arched) - Like Pizza */}
+      <section className="relative px-6 py-20 md:py-32 pt-24 overflow-hidden">
+        <div className="container mx-auto">
+          {/* Main Title Area */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 relative z-10">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-yellow-500 leading-none tracking-tight">
+              LOVE OF <br className="hidden md:block" />
+              <span className="italic text-white">FRY</span>
+            </h1>
+            
+            <div className="mt-8 md:mt-0 max-w-xs text-right hidden md:block">
+              <p className="text-white/70 font-sans tracking-widest text-sm mb-4">
+                SCROLL TO DISCOVER
+              </p>
+              <div className="w-full h-[1px] bg-white/20"></div>
+            </div>
+          </div>
+
+          {/* Arched Images Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            {/* Arch 1 */}
+            <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 group">
+              <Image 
+                src="/images/appetizers/hero_1.png"
+                alt="Crispy Wonthons"
+                fill
+                className="object-cover animate-ken-burns"
+              />
+               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+
+             {/* Arch 2 (Center - slightly taller) */}
+             <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 mt-0 md:-mt-12 group">
+              <Image 
+                src="/images/appetizers/hero_2.png"
+                alt="Golden French Fries"
+                 fill
+                className="object-cover animate-ken-burns"
+                style={{ animationDelay: "-5s" }}
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+
+             {/* Arch 3 */}
+             <div className="relative h-[400px] md:h-[500px] w-full rounded-t-[200px] overflow-hidden border border-white/10 group">
+              <Image 
+                src="/images/appetizers/hero_3.png"
+                alt="Loaded Nachos"
+                 fill
+                className="object-cover animate-ken-burns"
+                style={{ animationDelay: "-10s" }}
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+          </div>
+          
+          {/* Background Decor */}
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] border border-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+        </div>
       </section>
 
-      {/* Menu Grid */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8">
+      {/* Menu Grid Section */}
+      <section className="py-20 px-6 bg-[#0a0a0a] relative">
+         {/* Decoration Lines */}
+         <div className="absolute top-0 left-10 bottom-0 w-[1px] bg-white/5 hidden md:block"></div>
+         <div className="absolute top-0 right-10 bottom-0 w-[1px] bg-white/5 hidden md:block"></div>
+
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-yellow-500 font-sans tracking-[0.2em] text-sm uppercase">Our Menu</span>
+            <h2 className="text-4xl md:text-5xl font-serif text-white mt-4 italic">Choose Your Flavor</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
                 {items.length > 0 ? (
                     items.map((item, index) => (
                         <AppetizerItemCard key={item.id} item={item} index={index} />
