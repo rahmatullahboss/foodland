@@ -45,10 +45,10 @@ const BurgerItemSection = ({ item, index }: { item: MenuItem; index: number }) =
         <div className={`flex flex-col md:flex-row items-center gap-12 lg:gap-24 ${isEven ? "" : "md:flex-row-reverse"}`}>
           
           {/* Image Side */}
-          <div className="w-full md:w-1/2 relative">
+          <div className="w-full md:w-1/2 relative flex justify-center">
             <motion.div 
                 style={{ y, opacity }}
-                className="relative aspect-square md:aspect-[4/3] w-full"
+                className="relative w-[350px] h-[350px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px]"
             >
                 {item.images && item.images.length > 0 ? (
                   <Image
@@ -78,7 +78,7 @@ const BurgerItemSection = ({ item, index }: { item: MenuItem; index: number }) =
           </div>
 
           {/* Content Side */}
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          <div className="w-full md:w-1/2 text-center md:text-left px-6 md:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, x: isEven ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -94,11 +94,11 @@ const BurgerItemSection = ({ item, index }: { item: MenuItem; index: number }) =
                     <span className="text-white/40 text-sm ml-2">(4.9)</span>
                 </div>
 
-                <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6 leading-none text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-8 leading-none text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
                     {item.nameEn}
                 </h2>
                 
-                <p className="text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
+                <p className="text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-xl mx-auto md:mx-0 md:pr-8">
                     {item.descriptionEn || "A premium burger crafted with the finest ingredients, grilled to perfection and served with our signature sauce."}
                 </p>
 
