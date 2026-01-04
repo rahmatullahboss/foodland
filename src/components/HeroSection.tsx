@@ -97,12 +97,9 @@ const HeroSection = () => {
 
                 {/* Center Logo */}
                 <div className="absolute left-1/2 top-6 -translate-x-1/2 text-center">
-                   <div className="flex flex-col items-center justify-center">
-                        <Link href="/en" className="text-2xl font-bold font-serif text-white tracking-wider">
-                           <span className="italic">Food</span> <br/>
-                           <span>land</span>
-                        </Link>
-                   </div>
+                    <Link href="/en" className="text-2xl font-bold font-serif text-white tracking-wider">
+                        <span className="italic">Food</span>land
+                    </Link>
                 </div>
 
                 {/* Right Icons */}
