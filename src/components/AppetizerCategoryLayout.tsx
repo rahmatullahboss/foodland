@@ -59,16 +59,18 @@ const AppetizerItemCard = ({ item, index }: { item: MenuItem; index: number }) =
         </div>
       </div>
 
-      <h3 className="text-xl md:text-2xl font-bold text-yellow-500 mb-4 uppercase tracking-wide">
+      <h3 className="text-2xl font-serif text-white uppercase tracking-wide group-hover:text-yellow-500 transition-colors duration-300">
         {item.nameEn}
       </h3>
 
-      <Button 
-          variant="outline"
-          className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black rounded-none uppercase tracking-widest text-xs h-10 px-8"
-      >
-        Add to Cart
-      </Button>
+      <div className="pt-4 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
+        <Button 
+            variant="outline"
+            className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black rounded-none uppercase tracking-widest text-xs h-10 px-8"
+        >
+          Add to Cart
+        </Button>
+      </div>
 
     </motion.div>
   );
