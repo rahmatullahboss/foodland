@@ -6,30 +6,30 @@ import { IoSearchOutline, IoBagOutline, IoPersonOutline, IoHomeOutline } from 'r
 
 const Header: React.FC = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 bg-black/30 backdrop-blur-sm border-b border-white/5">
+    <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 md:px-12 bg-transparent">
       {/* Left Links */}
       <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-white/90">
-        <Link href="/en" className="hover:text-primary transition-colors flex items-center gap-2">
+        <Link href="/en" className="hover:text-[#c6a87c] transition-colors flex items-center gap-2">
           <IoHomeOutline className="w-4 h-4" />
           Home
         </Link>
-        <Link href="/en/categories" className="hover:text-primary transition-colors">Category</Link>
-        <Link href="/en/categories" className="hover:text-primary transition-colors">Offer</Link>
-        <Link href="/en/contact" className="hover:text-primary transition-colors">Contact</Link>
+        <Link href="/en/categories" className="hover:text-[#c6a87c] transition-colors">Category</Link>
+        <Link href="/en/categories" className="hover:text-[#c6a87c] transition-colors">Offer</Link>
+        <Link href="/en/contact" className="hover:text-[#c6a87c] transition-colors">Contact</Link>
       </div>
 
       {/* Mobile Menu */}
       <div className="md:hidden flex items-center gap-4 text-white">
-        <Link href="/en" className="hover:text-primary transition-colors">
+        <Link href="/en" className="hover:text-[#c6a87c] transition-colors">
           <IoHomeOutline className="w-5 h-5" />
         </Link>
         <Link href="/en/categories" className="font-bold">Menu</Link>
       </div>
 
-      {/* Center Logo */}
-      <div className="absolute left-1/2 top-6 -translate-x-1/2 text-center">
-        <Link href="/en" className="text-2xl font-bold font-serif text-white tracking-wider hover:text-primary transition-colors">
-          <span className="italic">Food</span>land
+      {/* Center Logo - styled like hero */}
+      <div className="absolute left-1/2 top-3 -translate-x-1/2 text-center">
+        <Link href="/en" className="text-xl md:text-2xl font-serif text-[#c6a87c] tracking-wider hover:text-white transition-colors">
+          <span className="italic text-white">Food</span>land
         </Link>
       </div>
 
@@ -43,11 +43,11 @@ const Header: React.FC = () => {
             className="bg-transparent border-none outline-none text-xs w-20 placeholder:text-white/50"
           />
         </div>
-        <button className="relative hover:text-primary transition-colors">
+        <button className="relative hover:text-[#c6a87c] transition-colors">
           <IoBagOutline className="w-5 h-5" />
           <span className="absolute -top-1 -right-1 bg-red-500 text-[10px] w-3 h-3 flex items-center justify-center rounded-full">5</span>
         </button>
-        <button className="hover:text-primary transition-colors">
+        <button className="hover:text-[#c6a87c] transition-colors">
           <IoPersonOutline className="w-5 h-5" />
         </button>
       </div>
